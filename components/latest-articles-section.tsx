@@ -86,22 +86,24 @@ export function LatestArticlesSection() {
     }
 
     return (
-      <div className="relative h-48 rounded-t-2xl overflow-hidden">
+      <div className="relative h-48 rounded-t-2xl overflow-hidden group">
         {/* Background Image */}
         <Image
           src={articleImages[article.id as keyof typeof articleImages]}
           alt={article.title}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
           priority
         />
 
         {/* Dark Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
 
         {/* Date Badge */}
         <div className="absolute top-4 right-4 z-10">
-          <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">13 March 2023</div>
+          <div className="bg-white/90 backdrop-blur-sm text-orange-600 px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+            {article.date}
+          </div>
         </div>
       </div>
     )

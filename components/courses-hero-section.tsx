@@ -27,7 +27,7 @@ export function CoursesHeroSection() {
           </div>
 
           {/* Right Side - Frame2.png Image */}
-          <div className="relative h-[280px] w-[400px] mx-auto">
+          <div className="relative h-[280px] w-[400px] mx-auto animate-float">
             <Image
               src="/Frame2.png"
               alt="Must-Explore Our Courses Frame"

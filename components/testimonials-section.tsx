@@ -147,9 +147,9 @@ export function TestimonialsSection() {
         </div>
 
         {/* Dimensions Badge */}
-        <div className="flex justify-center">
-          <div className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg">
-            942 Hug x 477.5 Hug
+        <div >
+          <div >
+            
           </div>
         </div>
       </div>

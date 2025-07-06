@@ -283,9 +283,19 @@ export function ServicesPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 lg:px-8 overflow-hidden">
+      <section className="relative py-20 px-4 lg:px-8 overflow-hidden min-h-screen">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-purple-50" />
+        <div className="absolute inset-0">
+          <Image
+            src="/background.png"
+            alt="Background"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+         
+        </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">

@@ -136,7 +136,9 @@ export function FooterSection() {
           {/* Social Media Icons */}
           <div className="flex space-x-4">
             <a
-              href="#"
+              href="https://www.linkedin.com/company/prabhimtechnologies/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
             >
               <Linkedin className="w-6 h-6 text-white" />
@@ -148,7 +150,9 @@ export function FooterSection() {
               <Github className="w-6 h-6 text-white" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/prabhimtech?igsh=MW5wYzh4MDBmb3d4OQ=="
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
             >
               <Instagram className="w-6 h-6 text-white" />

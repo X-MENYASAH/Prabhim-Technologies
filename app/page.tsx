@@ -87,8 +87,20 @@ export default function PrabhimHomepage() {
       </header>
 
       {/* Hero Section */}
-      <main className="relative z-10 px-4 py-8 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <main className="relative z-10 px-4 py-8 lg:px-8 min-h-screen">
+        {/* Background */}
+        <div className="absolute inset-0">
+          <Image
+            src="/background.png"
+            alt="Background"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-200px)]">
             {/* Left Content */}
             <div className="space-y-10 lg:pr-8">

@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Star, Clock, Users, Code, Laptop, TestTube } from "lucide-react"
+import { Star, Clock, Users, Code, Laptop, TestTube, ArrowRight } from "lucide-react"
 
 const courses = [
   {
@@ -66,14 +66,14 @@ const courses = [
 export function FeaturedCoursesSection() {
   const renderCourseImage = (course: (typeof courses)[0]) => {
     return (
-      <div className="relative h-64 rounded-t-2xl overflow-hidden">
+      <div className="relative h-64 rounded-t-2xl overflow-hidden group">
         {/* Background Image */}
         {course.id === 1 && (
           <Image
             src="/fc1.jpg"
             alt="Programming Languages"
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
             priority
           />
         )}
@@ -82,7 +82,7 @@ export function FeaturedCoursesSection() {
             src="/fc2.jpg"
             alt="AutoCAD Customization"
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
             priority
           />
         )}
@@ -91,60 +91,29 @@ export function FeaturedCoursesSection() {
             src="/fc3.jpg"
             alt="Software Testing"
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
             priority
           />
         )}
 
         {/* Dark Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
 
-
-
-        {/* Enroll Now Button with Background Image */}
+        {/* Enhanced Enroll Now Button */}
         <div className="absolute top-4 left-4 z-10">
-          {course.id === 1 && (
-            <div className="relative">
-              <Image
-                src="/fc1.jpg"
-                alt="Programming Languages Background"
-                width={120}
-                height={40}
-                className="rounded-full object-cover"
-              />
-              <Button className="absolute inset-0 bg-transparent hover:bg-black/20 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200">
-                Enroll Now
-              </Button>
-            </div>
-          )}
-          {course.id === 2 && (
-            <div className="relative">
-              <Image
-                src="/h1.png"
-                alt="AutoCAD Customization Background"
-                width={120}
-                height={40}
-                className="rounded-full object-cover"
-              />
-              <Button className="absolute inset-0 bg-transparent hover:bg-black/20 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200">
-                Enroll Now
-              </Button>
-            </div>
-          )}
-          {course.id === 3 && (
-            <div className="relative">
-              <Image
-                src="/fc3.png"
-                alt="Software Testing Background"
-                width={120}
-                height={40}
-                className="rounded-full object-cover"
-              />
-              <Button className="absolute inset-0 bg-transparent hover:bg-black/20 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200">
-                Enroll Now
-              </Button>
-            </div>
-          )}
+          <Button 
+            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 flex items-center space-x-2 border-2 border-white/20 backdrop-blur-sm"
+          >
+            <span>Enroll Now</span>
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Button>
+        </div>
+
+        {/* Floating Badge */}
+        <div className="absolute top-4 right-4 z-10">
+          <div className="bg-white/90 backdrop-blur-sm text-orange-600 px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+            Featured
+          </div>
         </div>
       </div>
     )

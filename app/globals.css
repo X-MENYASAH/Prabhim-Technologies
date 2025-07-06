@@ -47,3 +47,17 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Subtle floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
