@@ -54,7 +54,7 @@ export function FeaturedServicesSection() {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setCurrent((prev) => (prev + 1) % total)
-    }, 3000)
+    }, 6000)
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
     }

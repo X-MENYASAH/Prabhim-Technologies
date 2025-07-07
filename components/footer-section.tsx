@@ -5,11 +5,24 @@ import { Input } from "@/components/ui/input"
 import { GraduationCap, ArrowRight, Linkedin, Github, Instagram } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { useState } from "react"
 
 export function FooterSection() {
   function getRightsReservedText() {
     return `©${new Date().getFullYear()} All rights reserved`;
   }
+
+  const [email, setEmail] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false);
+  const handleSubscribe = () => {
+    // You can add your subscribe logic here
+    setEmail("");
+    setShowSuccess(true);
+    // Hide success message after 3 seconds
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
+  };
 
   return (
     <footer className="bg-white py-16 px-4 lg:px-8 border-t border-gray-100">
@@ -118,16 +131,26 @@ export function FooterSection() {
 
             {/* Newsletter Form */}
             <div className="relative w-full max-w-xl">
-  <Input
-    type="email"
-    placeholder="Add your email*"
-    className="w-full px-6 py-4 bg-gray-800 text-white placeholder-gray-400 border-0 rounded-full focus:ring-2 focus:ring-orange-500 focus:outline-none pr-40" // add right padding for button space
-  />
-  <Button className="absolute right-0 top-0 bottom-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2">
-    <ArrowRight className="w-5 h-5" />
-    <span>SUBSCRIBE</span>
-  </Button>
-</div>
+              {showSuccess && (
+                <div className="absolute -top-12 left-0 right-0 bg-green-500 text-white px-4 py-2 rounded-lg text-center text-sm font-medium animate-in slide-in-from-top-2 duration-300">
+                  Successfully subscribed!
+                </div>
+              )}
+              <Input
+                type="email"
+                placeholder="Add your email*"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                className="w-full px-6 py-4 bg-gray-800 text-white placeholder-gray-400 border-0 rounded-full focus:ring-2 focus:ring-orange-500 focus:outline-none pr-40"
+              />
+              <Button
+                className="absolute right-0 top-0 bottom-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
+                onClick={handleSubscribe}
+              >
+                <ArrowRight className="w-5 h-5" />
+                <span>SUBSCRIBE</span>
+              </Button>
+            </div>
 
           </div>
         </div>

@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Star, User } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 
 const testimonials = [
   {
@@ -34,21 +35,49 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Gajanan Hage",
+    name: "Sankalp Visphute",
     role: "Business Owner",
     rating: 5,
     testimonial:
-      "Outstanding service from start to finish. The team understood our vision perfectly and brought it to life. We couldn't be happier with the final results.",
+      "From concept to completion, the service was exceptional. The team captured our ideas with precision and delivered beyond our expectations. We're thrilled with the outcome.",
     avatar: "man-2",
   },
 ]
 
 export function TestimonialsSection() {
-  const renderAvatar = (avatar: string) => {
+  const [current, setCurrent] = useState(0)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const visibleCount = 3
+  const total = testimonials.length
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % total)
+    }, 8000)
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
+  }, [total])
+
+  // Calculate visible indices (wrap around)
+  const getVisible = () => {
+    let arr = []
+    for (let i = 0; i < visibleCount; i++) {
+      arr.push((current + i) % total)
+    }
+    return arr
+  }
+  const visible = getVisible()
+
+  const handleDotClick = (idx: number) => {
+    setCurrent(idx)
+  }
+
+  const renderAvatar = (avatar: string, name?: string) => {
     const avatarImages = {
       "woman-1": "/yash.jpg", // Yash Nagpure
       "man-1": "/suraj.jpg",   // Suraj Dhanorkar
-      "man-2": "/gajanan.jpg",   // Gajanan Hage
+      "man-2": name === "Sankalp Visphute" ? "/Sankalp.jpg" : "/gajanan.jpg", // Sankalp or Gajanan
     }
 
     return (
@@ -118,50 +147,55 @@ export function TestimonialsSection() {
           </h2>
         </div>
 
-        {/* Testimonials Marquee */}
-        <div className="relative overflow-x-hidden">
-          <div className="flex space-x-8 animate-marquee">
-            {testimonials.concat(testimonials).map((testimonial, idx) => (
-              <Card
-                key={testimonial.id + '-' + idx}
-                className="bg-white shadow-xl hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden border-0 group hover:-translate-y-3 cursor-pointer min-w-[340px] w-[340px]"
-              >
-                {/* Orange Header with Stars and Avatar */}
-                <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 pt-6 pb-4 relative group-hover:from-orange-600 group-hover:to-orange-700 transition-all duration-500">
-                  {/* Star Rating */}
-                  <div className="flex justify-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-white fill-current" />
-                    ))}
+        {/* Testimonials Carousel */}
+        <div className="relative flex flex-col items-center group">
+          <div className="flex space-x-8 transition-transform duration-700" style={{ minWidth: 0 }}>
+            {visible.map((idx, i) => {
+              const testimonial = testimonials[idx]
+              const isCenter = i === 1
+              return (
+                <Card
+                  key={testimonial.id + '-' + idx}
+                  className={`bg-white shadow-xl hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden border-0 cursor-pointer min-w-[340px] w-[340px] ${isCenter ? 'scale-110 z-10 ring-4 ring-orange-200' : 'opacity-70 scale-95'} group`}
+                  style={{ pointerEvents: isCenter ? 'auto' : 'none' }}
+                >
+                  {/* Orange Header with Stars and Avatar */}
+                  <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 pt-6 pb-4 relative group-hover:from-orange-600 group-hover:to-orange-700 transition-all duration-500">
+                    {/* Star Rating */}
+                    <div className="flex justify-center mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-white fill-current" />
+                      ))}
+                    </div>
+                    {/* Avatar positioned to overlap */}
+                    <div className="flex justify-center">
+                      <div className="relative -mb-10 z-10 group-hover:scale-110 transition-transform duration-500">{renderAvatar(testimonial.avatar, testimonial.name)}</div>
+                    </div>
                   </div>
-                  {/* Avatar positioned to overlap */}
-                  <div className="flex justify-center">
-                    <div className="relative -mb-10 z-10 group-hover:scale-110 transition-transform duration-500">{renderAvatar(testimonial.avatar)}</div>
-                  </div>
-                </div>
-                {/* White Content Section */}
-                <CardContent className="pt-12 pb-6 px-6 text-center group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500">
-                  {/* Testimonial Text */}
-                  <p className="text-gray-600 leading-relaxed mb-6 text-sm">"{testimonial.testimonial}"</p>
-                  {/* Name and Role */}
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-lg mb-1 group-hover:text-orange-600 transition-colors duration-500">{testimonial.name}</h4>
-                  </div>
-                </CardContent>
-              </Card>
+                  {/* White Content Section */}
+                  <CardContent className="pt-12 pb-6 px-6 text-center group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500">
+                    {/* Testimonial Text */}
+                    <p className="text-gray-600 leading-relaxed mb-6 text-sm">"{testimonial.testimonial}"</p>
+                    {/* Name and Role */}
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-lg mb-1 group-hover:text-orange-600 transition-colors duration-500">{testimonial.name}</h4>
+                    </div>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+          {/* Slider Dots */}
+          <div className="flex justify-center mt-12 space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleDotClick(idx)}
+                className={`w-4 h-4 rounded-full border-2 border-orange-400 transition-colors duration-300 ${idx === current ? 'bg-orange-500' : 'bg-white hover:bg-orange-200'}`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
             ))}
           </div>
-          <style jsx>{`
-            @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .animate-marquee {
-              display: flex;
-              width: max-content;
-              animation: marquee 30s linear infinite;
-            }
-          `}</style>
         </div>
 
         {/* Dimensions Badge */}

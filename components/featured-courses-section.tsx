@@ -9,7 +9,6 @@ const courses = [
   {
     id: 1,
     title: "Programming Languages",
-    instructor: "Determined-Poitras",
     duration: "2Weeks",
     students: "156 Students",
     description: "Master essential coding languages for modern software development and innovation.",
@@ -28,7 +27,6 @@ const courses = [
   {
     id: 2,
     title: "CAD Customization",
-    instructor: "Determined-Poitras",
     duration: "2Weeks",
     students: "156 Students",
     description: "Learn to customize CAD tools for precise engineering and product design.",
@@ -46,7 +44,6 @@ const courses = [
   {
     id: 3,
     title: "Software Testing",
-    instructor: "Determined-Poitras",
     duration: "2Weeks",
     students: "156 Students",
     description: "Acquire hands-on testing skills for quality assurance in software.",
@@ -139,20 +136,17 @@ export function FeaturedCoursesSection() {
         </div>
 
         {/* Courses Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {courses.map((course) => (
             <Card
               key={course.id}
-              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer"
+              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer h-full flex flex-col"
             >
               {/* Course Image */}
               {renderCourseImage(course)}
 
               {/* Course Content */}
-              <CardContent className="p-6 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500">
-                {/* Instructor */}
-                <p className="text-sm text-gray-600 mb-2">by {course.instructor}</p>
-
+              <CardContent className="p-6 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500 flex flex-col flex-1">
                 {/* Course Title */}
                 <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-500">{course.title}</h3>
 
@@ -172,7 +166,7 @@ export function FeaturedCoursesSection() {
                 <p className="text-gray-600 mb-4 leading-relaxed">"{course.description}"</p>
 
                 {/* Topics */}
-                <ul className="space-y-2 mb-6">
+                <ul className="gap-y-2 flex flex-col">
                   {course.topics.map((topic, index) => (
                     <li key={index} className="flex items-start space-x-2 text-gray-600">
                       <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
@@ -182,7 +176,7 @@ export function FeaturedCoursesSection() {
                 </ul>
 
                 {/* Rating and View More */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mt-auto pt-2">
                   <div className="flex items-center space-x-2">
                     <div className="flex items-center space-x-1">
                       <span className="text-lg font-bold text-gray-900">{course.rating}</span>

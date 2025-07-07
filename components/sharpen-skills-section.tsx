@@ -4,7 +4,7 @@ import { Code, Atom, Zap, Layers, Database } from "lucide-react"
 
 export function SharpenSkillsSection() {
   return (
-    <section className="relative w-[1170px] h-[274px] mx-auto overflow-hidden group hover:scale-105 transition-transform duration-700 cursor-pointer rounded-3xl border-2 border-orange-200/50 hover:border-orange-300/70 transition-all duration-500">
+    <section className="relative w-[1170px] h-[274px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 transition-all duration-500">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200" />
       <div className="absolute inset-0 bg-gradient-to-br from-rose-100/80 via-violet-100/60 to-cyan-100/80" />
@@ -15,7 +15,7 @@ export function SharpenSkillsSection() {
           <div className="space-y-4">
             <p className="text-sm text-gray-600 font-medium tracking-wide">GET MORE POWER FROM</p>
 
-            <h2 className="text-3xl font-bold text-gray-900 leading-tight font-exo group-hover:text-orange-600 transition-colors duration-500">
+            <h2 className="text-3xl font-bold text-gray-900 leading-tight font-exo transition-colors duration-500">
               Sharpen Your Code Skills
             </h2>
 
@@ -28,47 +28,47 @@ export function SharpenSkillsSection() {
           {/* Right Side - Floating Technology Icons */}
           <div className="relative h-full">
             {/* JavaScript (Red) */}
-            <div className="absolute top-2 left-6 w-9 h-9 bg-gradient-to-br from-red-500 to-red-600 rounded-xl shadow-lg flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute top-2 left-6 w-9 h-9 bg-gradient-to-br from-red-500 to-red-600 rounded-xl shadow-lg flex items-center justify-center transform rotate-12 floating-icon">
               <span className="text-sm font-bold text-white">JS</span>
             </div>
 
             {/* HTML5 (Orange) */}
-            <div className="absolute top-1 right-8 w-9 h-9 bg-gradient-to-br from-orange-400 to-orange-500 rounded-xl shadow-lg flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute top-1 right-8 w-9 h-9 bg-gradient-to-br from-orange-400 to-orange-500 rounded-xl shadow-lg flex items-center justify-center transform -rotate-12 floating-icon">
               <span className="text-sm font-bold text-white">H5</span>
             </div>
 
             {/* C++ (Pink/Purple) */}
-            <div className="absolute top-8 right-2 w-8 h-8 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl shadow-lg flex items-center justify-center transform rotate-6 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute top-8 right-2 w-8 h-8 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl shadow-lg flex items-center justify-center transform rotate-6 floating-icon">
               <span className="text-xs font-bold text-white">C++</span>
             </div>
 
             {/* Wave/Design Icon (Purple) */}
-            <div className="absolute top-16 right-4 w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-xl shadow-lg flex items-center justify-center transform -rotate-6 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute top-16 right-4 w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-xl shadow-lg flex items-center justify-center transform -rotate-6 floating-icon">
               <Layers className="w-6 h-6 text-white" />
             </div>
 
             {/* Python (Pink) */}
-            <div className="absolute top-24 left-2 w-7 h-7 bg-gradient-to-br from-pink-400 to-rose-400 rounded-lg shadow-lg flex items-center justify-center transform rotate-45 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute top-24 left-2 w-7 h-7 bg-gradient-to-br from-pink-400 to-rose-400 rounded-lg shadow-lg flex items-center justify-center transform rotate-45 floating-icon">
               <Code className="w-5 h-5 text-white" />
             </div>
 
             {/* JavaScript (Yellow) */}
-            <div className="absolute bottom-16 left-8 w-9 h-9 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-xl shadow-lg flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute bottom-16 left-8 w-9 h-9 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-xl shadow-lg flex items-center justify-center transform -rotate-12 floating-icon">
               <span className="text-sm font-bold text-black">JS</span>
             </div>
 
             {/* C++ (Cyan/Blue) */}
-            <div className="absolute bottom-4 right-6 w-9 h-9 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl shadow-lg flex items-center justify-center transform rotate-6 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute bottom-4 right-6 w-9 h-9 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl shadow-lg flex items-center justify-center transform rotate-6 floating-icon">
               <span className="text-xs font-bold text-white">C++</span>
             </div>
 
             {/* React (Purple) */}
-            <div className="absolute bottom-10 left-2 w-7 h-7 bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg shadow-lg flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute bottom-10 left-2 w-7 h-7 bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg shadow-lg flex items-center justify-center transform rotate-12 floating-icon">
               <Atom className="w-5 h-5 text-white" />
             </div>
 
             {/* CSS3 (Blue) */}
-            <div className="absolute bottom-2 right-2 w-9 h-9 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg flex items-center justify-center transform -rotate-6 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute bottom-2 right-2 w-9 h-9 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg flex items-center justify-center transform -rotate-6 floating-icon">
               <span className="text-sm font-bold text-white">C3</span>
             </div>
 
@@ -78,11 +78,11 @@ export function SharpenSkillsSection() {
             </div>
 
             {/* Additional Floating Elements */}
-            <div className="absolute top-10 left-1/2 w-7 h-7 bg-gradient-to-br from-teal-400 to-teal-500 rounded-lg shadow-lg flex items-center justify-center transform rotate-30 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute top-10 left-1/2 w-7 h-7 bg-gradient-to-br from-teal-400 to-teal-500 rounded-lg shadow-lg flex items-center justify-center transform rotate-30 floating-icon">
               <Database className="w-5 h-5 text-white" />
             </div>
 
-            <div className="absolute bottom-20 right-1/2 w-7 h-7 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg shadow-lg flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-transform duration-300 floating-icon">
+            <div className="absolute bottom-20 right-1/2 w-7 h-7 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg shadow-lg flex items-center justify-center floating-icon">
               <span className="text-xs font-bold text-white">TS</span>
             </div>
 
@@ -100,11 +100,6 @@ export function SharpenSkillsSection() {
               .floating-icon {
                 animation: float 4s ease-in-out infinite;
                 transition: all 0.5s ease;
-              }
-              
-              .group:hover .floating-icon {
-                transform: scale(1.25) !important;
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
               }
               
               .floating-icon:nth-child(1) { 

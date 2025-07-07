@@ -34,7 +34,6 @@ const courses = [
   {
     id: 1,
     title: "AutoCAD Customization",
-    instructor: "Determined-Poitras",
     duration: "2 Weeks",
     students: "156 Students",
     rating: 4.5,
@@ -46,7 +45,6 @@ const courses = [
   {
     id: 2,
     title: "LISP Customization",
-    instructor: "Determined-Poitras",
     duration: "3 Weeks",
     students: "89 Students",
     rating: 4.3,
@@ -58,7 +56,6 @@ const courses = [
   {
     id: 3,
     title: "Special Offer on C, C++ & C#",
-    instructor: "Determined-Poitras",
     duration: "4 Weeks",
     students: "234 Students",
     rating: 4.7,
@@ -71,7 +68,6 @@ const courses = [
   {
     id: 4,
     title: "SolidWorks Customization",
-    instructor: "Determined-Poitras",
     duration: "3 Weeks",
     students: "145 Students",
     rating: 4.6,
@@ -83,7 +79,6 @@ const courses = [
   {
     id: 5,
     title: "CATIA Customization",
-    instructor: "Determined-Poitras",
     duration: "4 Weeks",
     students: "98 Students",
     rating: 4.4,
@@ -95,7 +90,6 @@ const courses = [
   {
     id: 6,
     title: "NX Customization",
-    instructor: "Determined-Poitras",
     duration: "3 Weeks",
     students: "87 Students",
     rating: 4.5,
@@ -107,7 +101,6 @@ const courses = [
   {
     id: 7,
     title: "SolidEdge Customization",
-    instructor: "Determined-Poitras",
     duration: "2 Weeks",
     students: "76 Students",
     rating: 4.3,
@@ -119,7 +112,6 @@ const courses = [
   {
     id: 8,
     title: "Revit Customization",
-    instructor: "Determined-Poitras",
     duration: "3 Weeks",
     students: "123 Students",
     rating: 4.6,
@@ -131,7 +123,6 @@ const courses = [
   {
     id: 9,
     title: "C, C++ With DSA",
-    instructor: "Determined-Poitras",
     duration: "6 Weeks",
     students: "312 Students",
     rating: 4.8,
@@ -143,7 +134,6 @@ const courses = [
   {
     id: 10,
     title: "Python With DSA",
-    instructor: "Determined-Poitras",
     duration: "5 Weeks",
     students: "289 Students",
     rating: 4.7,
@@ -155,7 +145,6 @@ const courses = [
   {
     id: 11,
     title: "C# With DSA",
-    instructor: "Determined-Poitras",
     duration: "5 Weeks",
     students: "198 Students",
     rating: 4.6,
@@ -167,7 +156,6 @@ const courses = [
   {
     id: 12,
     title: "Java - JavaScript With DSA",
-    instructor: "Determined-Poitras",
     duration: "6 Weeks",
     students: "345 Students",
     rating: 4.8,
@@ -179,7 +167,6 @@ const courses = [
   {
     id: 13,
     title: "Full Stack Development",
-    instructor: "Determined-Poitras",
     duration: "8 Weeks",
     students: "267 Students",
     rating: 4.9,
@@ -191,7 +178,6 @@ const courses = [
   {
     id: 14,
     title: "DevOps And Cloud Computing",
-    instructor: "Determined-Poitras",
     duration: "6 Weeks",
     students: "189 Students",
     rating: 4.7,
@@ -203,7 +189,6 @@ const courses = [
   {
     id: 15,
     title: "Manual Testing",
-    instructor: "Determined-Poitras",
     duration: "4 Weeks",
     students: "156 Students",
     rating: 4.5,
@@ -215,7 +200,6 @@ const courses = [
   {
     id: 16,
     title: "Automation Testing",
-    instructor: "Determined-Poitras",
     duration: "5 Weeks",
     students: "134 Students",
     rating: 4.6,
@@ -543,16 +527,13 @@ export function CoursesPage() {
             {filteredCourses.map((course) => (
               <Card
                 key={course.id}
-                className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden group hover:scale-105"
+                className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden group hover:scale-105 h-full flex flex-col"
               >
                 {/* Course Image */}
                 {renderCourseImage(course)}
 
                 {/* Course Content */}
-                <CardContent className="p-6">
-                  {/* Instructor */}
-                  <p className="text-sm text-gray-600 mb-2">by {course.instructor}</p>
-
+                <CardContent className="p-6 flex-1 flex flex-col">
                   {/* Course Title */}
                   <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2">{course.title}</h3>
 
@@ -572,7 +553,7 @@ export function CoursesPage() {
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p>
 
                   {/* Rating and View More */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-auto pt-2">
                     <div className="flex items-center space-x-2">
                       <div className="flex items-center space-x-1">
                         <span className="text-sm font-bold text-gray-900">{course.rating}</span>

@@ -239,7 +239,7 @@ export function CadCustomizationPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Instructor</p>
-                <p className="font-semibold text-gray-900">Determined-Poitras</p>
+                <p className="font-semibold text-gray-900">Expert Instructor</p>
               </div>
             </div>
             <div className="text-sm text-gray-600">
@@ -521,7 +521,7 @@ export function CadCustomizationPage() {
                       <User className="w-6 h-6 text-gray-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Determined-Poitras</h4>
+                      <h4 className="font-semibold text-gray-900">Expert Instructor</h4>
                       <p className="text-sm text-gray-600">CAD Expert & Instructor</p>
                     </div>
                   </div>
