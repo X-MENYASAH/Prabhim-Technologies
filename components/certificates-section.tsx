@@ -11,7 +11,7 @@ export function CertificatesSection() {
           {/* Left Content */}
           <div className="space-y-12">
             {/* Section Title */}
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-[50px] font-bold text-gray-900 leading-tight font-syne">
               Earn Industry-Recognized
               <br />
               <span className="text-orange-500">Certificates</span>
@@ -25,7 +25,7 @@ export function CertificatesSection() {
                   <GraduationCap className="w-8 h-8 text-gray-900" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Career Opportunities</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 font-exo">Career Opportunities</h3>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     Earning recognized certifications in programming and CAD opens doors across industries—from tech
                     startups to engineering firms.
@@ -39,7 +39,7 @@ export function CertificatesSection() {
                   <Settings className="w-8 h-8 text-gray-900" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Professional Credibility</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 font-exo">Professional Credibility</h3>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     Having a credential shows dedication to your craft—it boosts trust and credibility with employers,
                     clients, and peers. Plus, you'll gain confidence to tackle increasingly complex problems.
@@ -53,7 +53,7 @@ export function CertificatesSection() {
                   <Wrench className="w-8 h-8 text-gray-900" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Demonstrable, Real-World Skills</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 font-exo">Demonstrable, Real-World Skills</h3>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     Beyond theory, our certification confirms your ability to produce actual scripts, tools, CAD
                     designs, and automations. Employers and clients value practical competence—often more than common
@@ -66,7 +66,7 @@ export function CertificatesSection() {
 
           {/* Right Side - Certificate Image */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-lg">
+            <div className="relative w-full max-w-lg animate-float-alt">
               <Image
                 src="/cert.png"
                 alt="Industry-Recognized Certificate"

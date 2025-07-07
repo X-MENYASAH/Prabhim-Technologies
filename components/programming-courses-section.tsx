@@ -8,16 +8,16 @@ import { Star, Clock, Users, Code, TestTube, User, ArrowRight } from "lucide-rea
 const programmingCourses = [
   {
     id: 1,
-    title: "Programming Languages",
+    title: "C++ Programming Languages",
     instructor: "Determined-Poitras",
     duration: "2Weeks",
     students: "156 Students",
     description: "Master essential coding languages for modern software development and innovation.",
     topics: [
-      "Python fundamentals",
-      "Java and C#",
-      "SQL and NoSQL database integration",
-      "JavaScript ES6+ and frameworks",
+      "Master basic syntax, data types, and control structures",
+      "Understand pointers, memory management, and dynamic allocation",
+      "Learn Object-Oriented Programming (OOP): classes, inheritance, polymorphism",
+      "Practice using the Standard Template Library (STL) for efficient code reuse",
     ],
     rating: 4.5,
     reviews: 124,
@@ -27,15 +27,16 @@ const programmingCourses = [
   },
   {
     id: 2,
-    title: "Programming Languages",
+    title: "Python Programming Languages",
     instructor: "Determined-Poitras",
     duration: "2Weeks",
     students: "156 Students",
-    description: "Learn to customize CAD tools for precise engineering and product design.",
+    description: "Learn to code with Python for powerful automation, data analysis, and real-world problem solving.",
     topics: [
-      "Parametric modeling in AutoCAD and SolidWorks",
-      "Custom tool palettes and macros",
-      "Scripting using VBA or Python APIs",
+      "Python has simple, readable code that's great for beginners.",
+      "It's used in web development, data science, AI, and automation.",
+      "Comes with powerful libraries like NumPy, Pandas, and Tkinter.",
+      "Supports OOP concepts like classes, inheritance, and polymorphism."
     ],
     rating: 4.5,
     reviews: 124,
@@ -45,15 +46,16 @@ const programmingCourses = [
   },
   {
     id: 3,
-    title: "Programming Languages",
+    title: "Java Programming Languages",
     instructor: "Determined-Poitras",
     duration: "2Weeks",
     students: "156 Students",
-    description: "Acquire hands-on testing skills for quality assurance in software.",
+    description: "Acquire practical Java coding skills for building robust and scalable applications.",
     topics: [
-      "Manual test case design & execution",
-      "Automated testing with Selenium and Cypress",
-      "API testing using Postman or REST",
+      "Learn how to write Java programs using classes and methods",
+      "Understand variables, data types, and conditional logic",
+      "Practice loops, functions, and error handling in real code",
+      "Build real-world projects like e-commerce systems and library management apps for hands-on learning"
     ],
     rating: 4.5,
     reviews: 124,
@@ -73,7 +75,7 @@ export function ProgrammingCoursesSection() {
             src="/fc1.jpg"
             alt="Programming Languages"
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-125"
             priority
           />
         )}
@@ -82,7 +84,7 @@ export function ProgrammingCoursesSection() {
             src="/pc2.jpg"
             alt="Programming Languages"
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-125"
             priority
           />
         )}
@@ -91,18 +93,18 @@ export function ProgrammingCoursesSection() {
             src="/fc3.jpg"
             alt="Programming Languages"
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-125"
             priority
           />
         )}
 
         {/* Dark Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
 
         {/* Enhanced Enroll Now Button */}
         <div className="absolute top-4 left-4 z-10">
           <Button 
-            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 flex items-center space-x-2 border-2 border-white/20 backdrop-blur-sm"
+            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-1 flex items-center space-x-2 border-2 border-white/20 backdrop-blur-sm"
           >
             <span>Enroll Now</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -125,7 +127,7 @@ export function ProgrammingCoursesSection() {
         {/* Section Header */}
         <div className="flex items-center justify-between mb-12">
           <div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-[43px] font-bold text-gray-900 mb-4 font-exo">
               <span className="text-orange-500">Programming</span> Courses
             </h2>
             <p className="text-lg text-gray-600">Explore our Popular Courses</p>
@@ -143,18 +145,18 @@ export function ProgrammingCoursesSection() {
           {programmingCourses.map((course) => (
             <Card
               key={course.id}
-              className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden"
+              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer"
             >
               {/* Course Image */}
               {renderCourseImage(course)}
 
               {/* Course Content */}
-              <CardContent className="p-6">
+              <CardContent className="p-6 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500">
                 {/* Instructor */}
                 <p className="text-sm text-gray-600 mb-2">by {course.instructor}</p>
 
                 {/* Course Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{course.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-poppins group-hover:text-orange-600 transition-colors duration-500">{course.title}</h3>
 
                 {/* Course Meta */}
                 <div className="flex items-center space-x-4 mb-4">
@@ -190,7 +192,7 @@ export function ProgrammingCoursesSection() {
                     </div>
                     <span className="text-sm text-green-600 font-medium">({course.reviews})</span>
                   </div>
-                  <Button variant="ghost" className="text-gray-900 hover:text-orange-500 font-semibold">
+                  <Button variant="ghost" className="text-gray-900 group-hover:text-orange-500 font-semibold transition-all duration-300 group-hover:scale-105">
                     View More
                   </Button>
                 </div>

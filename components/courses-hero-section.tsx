@@ -5,7 +5,7 @@ import { Atom, RotateCcw, Code, Database, Zap, BarChart3, Settings } from "lucid
 
 export function CoursesHeroSection() {
   return (
-    <section className="relative w-[1240px] h-[324px] mx-auto overflow-hidden">
+    <section className="relative w-[1170px] h-[274px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 hover:border-orange-300/70 transition-all duration-500">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-emerald-200 via-cyan-200 to-pink-200" />
       <div className="absolute inset-0 bg-gradient-to-br from-teal-100/80 via-purple-100/40 to-rose-200/80" />

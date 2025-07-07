@@ -340,7 +340,7 @@ export function CoursesPage() {
           {/* Logo */}
           <div className="flex items-center">
             <Image
-              src="/logo.png"
+              src="/logo1.png"
               alt="PRABHIM Logo"
               width={145.75}
               height={100}
@@ -581,7 +581,7 @@ export function CoursesPage() {
                       <span className="text-xs text-green-600 font-medium">({course.reviews})</span>
                     </div>
                     {course.id === 1 ? (
-                      <Link href="/courses/autocad-customization">
+                      <Link href="/courses/cad-customization">
                         <Button
                           variant="ghost"
                           className="text-orange-500 hover:text-orange-600 font-semibold text-sm p-0"
@@ -716,7 +716,7 @@ export function CoursesPage() {
               {/* Logo */}
               <div className="flex items-center">
                 <Image
-                  src="/logo.png"
+                  src="/logo1.png"
                   alt="PRABHIM Logo"
                   width={216.56}
                   height={143}

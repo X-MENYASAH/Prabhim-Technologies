@@ -87,7 +87,7 @@ export function AboutUsPage() {
           {/* Logo */}
           <div className="flex items-center">
             <Image
-              src="/logo.png"
+              src="/logo1.png"
               alt="PRABHIM Logo"
               width={145.75}
               height={100}
@@ -761,7 +761,7 @@ export function AboutUsPage() {
               <div className="lg:col-span-4 space-y-6">
                 <div className="flex items-center">
                   <Image
-                    src="/logo.png"
+                    src="/logo1.png"
                     alt="PRABHIM Logo"
                     width={216.56}
                     height={143}

@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
-export function CadCustomizationSection() {
+export function CadSoftwareCustomizationSection() {
   return (
     <section className="py-20 px-4 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -12,15 +12,14 @@ export function CadCustomizationSection() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight font-syne">
-                <span className="text-orange-500">CAD</span>
+                <span className="text-orange-500">CAD Software</span>
                 <span className="text-gray-900"> Customization</span>
                 <br />
                 <span className="text-gray-900">Training</span>
               </h2>
 
               <p className="text-lg text-gray-700 leading-relaxed max-w-2xl">
-                "Learn to tailor CAD tools—automate repetitive tasks, build custom scripts/macros, and integrate
-                systems—to boost precision, efficiency, and team collaboration in engineering and design workflows."
+                "Unlock the full potential of your CAD tools—customize interfaces, automate workflows, and integrate advanced features to streamline engineering and design processes."
               </p>
             </div>
 
@@ -34,7 +33,7 @@ export function CadCustomizationSection() {
             <div className="relative w-full max-w-2xl h-[400px] lg:h-[500px] animate-float-alt">
               <Image
                 src="/cad.png"
-                alt="CAD Customization Training"
+                alt="CAD Software Customization Training"
                 fill
                 className="object-cover rounded-2xl"
                 priority

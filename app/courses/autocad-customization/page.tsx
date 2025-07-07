@@ -1,5 +1,5 @@
-import { AutoCADCustomizationPage } from "@/components/autocad-customization-page"
+import { CadCustomizationPage } from "@/components/cad-customization-page"
 
-export default function AutoCADCustomizationCoursePage() {
-  return <AutoCADCustomizationPage />
+export default function CadCustomizationCoursePage() {
+  return <CadCustomizationPage />
 }

@@ -7,7 +7,7 @@ import { Star, User } from "lucide-react"
 const testimonials = [
   {
     id: 1,
-    name: "Fatima Asrafy",
+    name: "Yash Nagpure",
     role: "Marketing Manager",
     rating: 5,
     testimonial:
@@ -16,7 +16,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "John Mitchell",
+    name: "Suraj Dhanorkar",
     role: "Creative Director",
     rating: 5,
     testimonial:
@@ -25,7 +25,16 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "David Rodriguez",
+    name: "Gajanan Hage",
+    role: "Business Owner",
+    rating: 5,
+    testimonial:
+      "Outstanding service from start to finish. The team understood our vision perfectly and brought it to life. We couldn't be happier with the final results.",
+    avatar: "man-2",
+  },
+  {
+    id: 4,
+    name: "Gajanan Hage",
     role: "Business Owner",
     rating: 5,
     testimonial:
@@ -37,18 +46,18 @@ const testimonials = [
 export function TestimonialsSection() {
   const renderAvatar = (avatar: string) => {
     const avatarImages = {
-      "woman-1": "/test1.png", // Fatima Asrafy
-      "man-1": "/test2.png",   // John Mitchell
-      "man-2": "/test3.png",   // David Rodriguez
+      "woman-1": "/yash.jpg", // Yash Nagpure
+      "man-1": "/suraj.jpg",   // Suraj Dhanorkar
+      "man-2": "/gajanan.jpg",   // Gajanan Hage
     }
 
     return (
-      <div className="w-20 h-20 rounded-full border-4 border-white shadow-lg overflow-hidden">
+      <div className="w-28 h-28 rounded-full border-4 border-white shadow-lg overflow-hidden">
         <Image
           src={avatarImages[avatar as keyof typeof avatarImages]}
           alt={`${avatar} profile`}
-          width={80}
-          height={80}
+          width={112}
+          height={112}
           className="w-full h-full object-cover"
         />
       </div>
@@ -104,46 +113,55 @@ export function TestimonialsSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 font-syne">
             Our <span className="text-orange-500">Testimonial</span>
           </h2>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {testimonials.map((testimonial) => (
-            <Card
-              key={testimonial.id}
-              className="bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-2xl overflow-hidden border-0"
-            >
-              {/* Orange Header with Stars and Avatar */}
-              <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 pt-6 pb-4 relative">
-                {/* Star Rating */}
-                <div className="flex justify-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-white fill-current" />
-                  ))}
+        {/* Testimonials Marquee */}
+        <div className="relative overflow-x-hidden">
+          <div className="flex space-x-8 animate-marquee">
+            {testimonials.concat(testimonials).map((testimonial, idx) => (
+              <Card
+                key={testimonial.id + '-' + idx}
+                className="bg-white shadow-xl hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden border-0 group hover:-translate-y-3 cursor-pointer min-w-[340px] w-[340px]"
+              >
+                {/* Orange Header with Stars and Avatar */}
+                <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 pt-6 pb-4 relative group-hover:from-orange-600 group-hover:to-orange-700 transition-all duration-500">
+                  {/* Star Rating */}
+                  <div className="flex justify-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-white fill-current" />
+                    ))}
+                  </div>
+                  {/* Avatar positioned to overlap */}
+                  <div className="flex justify-center">
+                    <div className="relative -mb-10 z-10 group-hover:scale-110 transition-transform duration-500">{renderAvatar(testimonial.avatar)}</div>
+                  </div>
                 </div>
-
-                {/* Avatar positioned to overlap */}
-                <div className="flex justify-center">
-                  <div className="relative -mb-10 z-10">{renderAvatar(testimonial.avatar)}</div>
-                </div>
-              </div>
-
-              {/* White Content Section */}
-              <CardContent className="pt-12 pb-6 px-6 text-center">
-                {/* Testimonial Text */}
-                <p className="text-gray-600 leading-relaxed mb-6 text-sm">"{testimonial.testimonial}"</p>
-
-                {/* Name and Role */}
-                <div>
-                  <h4 className="font-bold text-gray-900 text-lg mb-1">{testimonial.name}</h4>
-                  <p className="text-gray-500 text-sm">{testimonial.role}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                {/* White Content Section */}
+                <CardContent className="pt-12 pb-6 px-6 text-center group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500">
+                  {/* Testimonial Text */}
+                  <p className="text-gray-600 leading-relaxed mb-6 text-sm">"{testimonial.testimonial}"</p>
+                  {/* Name and Role */}
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-lg mb-1 group-hover:text-orange-600 transition-colors duration-500">{testimonial.name}</h4>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <style jsx>{`
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+              display: flex;
+              width: max-content;
+              animation: marquee 30s linear infinite;
+            }
+          `}</style>
         </div>
 
         {/* Dimensions Badge */}

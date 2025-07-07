@@ -38,7 +38,7 @@ export function CustomSoftwareSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight font-syne">
             Custom Software
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
@@ -65,7 +65,7 @@ export function CustomSoftwareSection() {
           </div>
 
           {/* Lady Image */}
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-12 animate-float-alt">
             <div className="relative w-[1440px] h-[453.15px]">
               <img 
                 src="/lady.png" 

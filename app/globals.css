@@ -10,6 +10,22 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
+  .font-syne {
+    font-family: 'Syne';
+  }
+  
+  .font-exo {
+    font-family: 'Exo';
+  }
+  
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-raleway {
+    font-family: 'Raleway', sans-serif;
+  }
 }
 
 @layer utilities {
@@ -48,16 +64,47 @@ html {
   background-clip: text;
 }
 
-/* Subtle floating animation */
+/* Enhanced floating animation with better performance */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
+  0% {
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-16px);
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
+  animation-play-state: running;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-animation: float 4s ease-in-out infinite;
+  -webkit-animation-play-state: running;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+}
+
+/* Alternative float animation for better browser support */
+@keyframes float-alt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -20px, 0);
+  }
+}
+
+.animate-float-alt {
+  animation: float-alt 4s ease-in-out infinite;
+  animation-play-state: running;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-animation: float-alt 4s ease-in-out infinite;
+  -webkit-animation-play-state: running;
+  -webkit-backface-visibility: hidden;
 }

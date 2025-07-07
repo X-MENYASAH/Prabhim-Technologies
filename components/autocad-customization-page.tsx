@@ -135,7 +135,7 @@ const courseModules = [
   },
 ]
 
-export function AutoCADCustomizationPage() {
+export function CadCustomizationPage() {
   const [expandedModules, setExpandedModules] = useState<number[]>([0])
 
   const toggleModule = (index: number) => {
@@ -150,7 +150,7 @@ export function AutoCADCustomizationPage() {
           {/* Logo */}
           <div className="flex items-center">
             <Image
-              src="/logo.png"
+              src="/logo1.png"
               alt="PRABHIM Logo"
               width={145.75}
               height={100}
@@ -225,7 +225,7 @@ export function AutoCADCustomizationPage() {
               Courses
             </Link>
             <span>/</span>
-            <span className="text-orange-500">AutoCAD Customization</span>
+            <span className="text-orange-500">CAD Customization</span>
           </div>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -372,11 +372,11 @@ export function AutoCADCustomizationPage() {
                 <h2 className="text-3xl font-bold text-gray-900">About Course</h2>
                 <div className="prose prose-lg text-gray-700 max-w-none">
                   <p>
-                    Welcome to AutoCAD customization learning in this present era, you may struggle to progress in life.
+                    Welcome to CAD customization learning in this present era, you may struggle to progress in life.
                     Because of the lack of proper skills and knowledge. But with this course, you can build your career
-                    in AutoCAD customization. Therefore, this course which will help you can build your career if you
+                    in CAD customization. Therefore, this course which will help you can build your career if you
                     haven't different technical skills. they can help you to build your career and understand the future
-                    of AutoCAD customization.
+                    of CAD customization.
                   </p>
                 </div>
               </div>
@@ -387,7 +387,7 @@ export function AutoCADCustomizationPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-4">
                     <p className="text-gray-700">
-                      You will learn AutoCAD customization in a different way. You will learn how to create custom
+                      You will learn CAD customization in a different way. You will learn how to create custom
                       commands, menus, toolbars, and dialog boxes. You will also learn how to use AutoCAD's built-in
                       programming tools from basic level to advanced level with practical examples.
                     </p>
@@ -473,7 +473,7 @@ export function AutoCADCustomizationPage() {
                   <div className="relative mb-4">
                     <Image
                       src="/autocad.jpg"
-                      alt="AutoCAD Customization Background"
+                      alt="CAD Customization Background"
                       width={400}
                       height={60}
                       className="w-full h-[60px] rounded-lg object-cover"
@@ -604,7 +604,7 @@ export function AutoCADCustomizationPage() {
             <div className="lg:col-span-4 space-y-6">
               <div className="flex items-center">
                 <Image
-                  src="/logo.png"
+                  src="/logo1.png"
                   alt="PRABHIM Logo"
                   width={216.56}
                   height={143}

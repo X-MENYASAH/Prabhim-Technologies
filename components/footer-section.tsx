@@ -7,6 +7,10 @@ import Link from "next/link"
 import Image from "next/image"
 
 export function FooterSection() {
+  function getRightsReservedText() {
+    return `©${new Date().getFullYear()} All rights reserved`;
+  }
+
   return (
     <footer className="bg-white py-16 px-4 lg:px-8 border-t border-gray-100">
       <div className="max-w-7xl mx-auto">
@@ -17,7 +21,7 @@ export function FooterSection() {
             {/* Logo */}
             <div className="flex items-center">
               <Image
-                src="/logo.png"
+                src="/logo1.png"
                 alt="PRABHIM Logo"
                 width={216.56}
                 height={143}
@@ -131,7 +135,7 @@ export function FooterSection() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-100">
           {/* Copyright */}
-          <div className="text-gray-600 mb-4 md:mb-0">©2024 All rights reserved</div>
+          <div className="text-gray-600 mb-4 md:mb-0">{getRightsReservedText()}</div>
 
           {/* Social Media Icons */}
           <div className="flex space-x-4">

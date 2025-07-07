@@ -26,10 +26,10 @@ const statistics = [
 function StatisticsCard({ number, label }: { number: string; label: string }) {
   const display = useCountUp(number)
   return (
-    <Card className="bg-white/95 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-2xl border-0">
-      <CardContent className="p-8 text-center">
-        <div className="text-4xl lg:text-5xl font-bold text-orange-500 mb-4">{display}</div>
-        <div className="text-lg font-semibold text-gray-900">{label}</div>
+    <Card className="bg-white/95 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 rounded-2xl border-0 group hover:-translate-y-2 cursor-pointer">
+      <CardContent className="p-8 text-center group-hover:bg-gradient-to-br group-hover:from-orange-50 group-hover:to-white transition-all duration-500">
+        <div className="text-4xl lg:text-5xl font-bold text-orange-500 mb-4 group-hover:scale-110 transition-transform duration-500">{display}</div>
+        <div className="text-lg font-semibold text-gray-900 group-hover:text-orange-600 transition-colors duration-500">{label}</div>
       </CardContent>
     </Card>
   )
@@ -79,9 +79,8 @@ function useCountUp(target: string, duration = 1500) {
 
 export function StatisticsSection() {
   return (
-    <section className="relative py-20 px-4 lg:px-8 overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 w-[1440px] h-[381px] mx-auto">
+    <section className="relative w-[1170px] h-[274px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 hover:border-orange-300/70 transition-all duration-500 flex items-center justify-center">
+      <div className="absolute inset-0">
         <Image
           src="/img.jpg"
           alt="Statistics Background"
@@ -89,15 +88,17 @@ export function StatisticsSection() {
           className="object-cover"
           priority
         />
-        {/* Dark Overlay for Better Text Readability */}
         <div className="absolute inset-0 bg-black/40" />
       </div>
-
-      {/* Statistics Cards */}
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="relative z-10 w-full h-full flex items-center justify-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-5xl mx-auto">
           {statistics.map((stat, index) => (
-            <StatisticsCard key={index} number={stat.number} label={stat.label} />
+            <Card key={index} className="bg-white/90 shadow-md rounded-xl border-0 group transition-all duration-300 hover:scale-105 hover:border-orange-400 hover:bg-orange-50 cursor-pointer">
+              <CardContent className="p-8 text-center">
+                <div className="text-3xl font-bold text-orange-500 mb-2 group-hover:text-orange-600 transition-colors duration-300">{stat.number}</div>
+                <div className="text-base font-semibold text-gray-900 group-hover:text-orange-500 transition-colors duration-300">{stat.label}</div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

@@ -17,6 +17,7 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { LatestArticlesSection } from "@/components/latest-articles-section"
 import { CertificatesSection } from "@/components/certificates-section"
 import { FooterSection } from "@/components/footer-section"
+import { CadSoftwareCustomizationSection } from "@/components/cad-software-customization-section"
 
 export default function PrabhimHomepage() {
   return (
@@ -27,7 +28,7 @@ export default function PrabhimHomepage() {
           {/* Logo */}
           <div className="flex items-center">
             <Image
-              src="/logo.png"
+              src="/logo1.png"
               alt="PRABHIM Logo"
               width={145.75}
               height={100}
@@ -105,7 +106,7 @@ export default function PrabhimHomepage() {
             {/* Left Content */}
             <div className="space-y-10 lg:pr-8">
               <div className="space-y-8">
-                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight">
+                <h1 className="text-[56px] font-bold text-gray-900 leading-[1.1] tracking-tight font-syne">
                   Empowering{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
                     Innovation
@@ -127,7 +128,7 @@ export default function PrabhimHomepage() {
 
             {/* Right Content - Brain Image */}
             <div className="relative flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-2xl h-[500px] lg:h-[650px]">
+              <div className="relative w-full max-w-2xl h-[500px] lg:h-[650px] animate-float-alt">
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-200/30 to-orange-300/20 rounded-full blur-3xl scale-110" />
                 <Image
                   src="/brain.png"
@@ -167,8 +168,8 @@ export default function PrabhimHomepage() {
       {/* Programming Courses Section */}
       <ProgrammingCoursesSection />
 
-      {/* CAD Customization Section */}
-      <CadCustomizationSection />
+      {/* CAD Software Customization Section */}
+      <CadSoftwareCustomizationSection />
 
       {/* Master CAD Section */}
       <MasterCadSection />

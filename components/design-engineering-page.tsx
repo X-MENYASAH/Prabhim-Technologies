@@ -15,7 +15,7 @@ export function DesignEngineeringPage() {
           {/* Logo */}
           <div className="flex items-center">
             <Image
-              src="/logo.png"
+              src="/logo1.png"
               alt="PRABHIM Logo"
               width={145.75}
               height={100}
@@ -252,7 +252,7 @@ export function DesignEngineeringPage() {
               {/* Logo */}
               <div className="flex items-center">
                 <Image
-                  src="/logo.png"
+                  src="/logo1.png"
                   alt="PRABHIM Logo"
                   width={216.56}
                   height={143}

@@ -92,12 +92,12 @@ export function LatestArticlesSection() {
           src={articleImages[article.id as keyof typeof articleImages]}
           alt={article.title}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 group-hover:scale-125"
           priority
         />
 
         {/* Dark Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
 
         {/* Date Badge */}
         <div className="absolute top-4 right-4 z-10">
@@ -115,7 +115,7 @@ export function LatestArticlesSection() {
         {/* Section Header */}
         <div className="flex items-center justify-between mb-12">
           <div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 font-exo">
               Latest <span className="text-orange-500">Articles</span>
             </h2>
             <p className="text-lg text-gray-600">Explore our Blogs</p>
@@ -133,13 +133,13 @@ export function LatestArticlesSection() {
           {articles.map((article) => (
             <Card
               key={article.id}
-              className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden"
+              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer"
             >
               {/* Article Image */}
               {renderArticleImage(article)}
 
               {/* Article Content */}
-              <CardContent className="p-6">
+              <CardContent className="p-6 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500">
                 {/* Category and Date */}
                 <div className="flex items-center space-x-2 mb-3">
                   <span className="text-sm font-semibold text-gray-900">{article.category}</span>
@@ -147,13 +147,13 @@ export function LatestArticlesSection() {
                 </div>
 
                 {/* Article Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight">{article.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight font-raleway group-hover:text-orange-600 transition-colors duration-500">{article.title}</h3>
 
                 {/* Article Excerpt */}
                 <p className="text-gray-600 mb-6 leading-relaxed text-sm">{article.excerpt}</p>
 
                 {/* Read More Link */}
-                <button className="text-orange-500 hover:text-orange-600 font-semibold text-sm transition-colors">
+                <button className="text-orange-500 group-hover:text-orange-600 font-semibold text-sm transition-all duration-300 group-hover:scale-105">
                   Read More...
                 </button>
               </CardContent>

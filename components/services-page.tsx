@@ -48,7 +48,7 @@ const services = [
   },
   {
     id: 4,
-    title: "CAD PLM Administration",
+    title: "Web Development",
     description:
       "It managing and maintaining CAD and Product Lifecycle Management (PLM) systems to ensure smooth operations.",
     icon: Database,
@@ -223,7 +223,7 @@ export function ServicesPage() {
           {/* Logo */}
           <div className="flex items-center">
             <Image
-              src="/logo.png"
+              src="/logo1.png"
               alt="PRABHIM Logo"
               width={145.75}
               height={100}
@@ -456,7 +456,7 @@ export function ServicesPage() {
               {/* Logo */}
               <div className="flex items-center">
                 <Image
-                  src="/logo.png"
+                  src="/logo1.png"
                   alt="PRABHIM Logo"
                   width={216.56}
                   height={143}

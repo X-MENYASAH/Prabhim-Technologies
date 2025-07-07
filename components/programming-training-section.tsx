@@ -10,7 +10,7 @@ export function ProgrammingTrainingSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Programming Image */}
           <div className="relative flex items-center justify-center">
-            <div className="relative w-96 h-96">
+            <div className="relative w-96 h-96 animate-float-alt">
               <Image
                 src="/img1.png"
                 alt="Programming Language Training"
@@ -24,7 +24,7 @@ export function ProgrammingTrainingSection() {
           {/* Right Side - Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight font-syne">
                 <span className="text-orange-500">Programming</span>
                 <br />
                 <span className="text-gray-900">Language Training</span>

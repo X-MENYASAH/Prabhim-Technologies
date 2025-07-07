@@ -8,16 +8,16 @@ import { Star, Clock, Users, Monitor, User, TestTube } from "lucide-react"
 const cadCourses = [
   {
     id: 1,
-    title: "AutoCAD Customization",
+    title: "Creo Toolkit C++",
     instructor: "Determined-Poitras",
     duration: "2Weeks",
     students: "156 Students",
     description: "Master essential coding languages for modern software development and innovation.",
     topics: [
-      "Python fundamentals",
-      "Java and C#",
-      "SQL and NoSQL database integration",
-      "JavaScript ES6+ and frameworks",
+      "Gain comprehensive expertise in customizing Creo Parametric using C++.",
+      "Develop proficiency in creating, editing, and manipulating various design elements.",
+      "Acquire advanced skills in parametric modelling, assembly management, and data exchange."
+     
     ],
     rating: 4.5,
     reviews: 124,
@@ -27,7 +27,7 @@ const cadCourses = [
   },
   {
     id: 2,
-    title: "AutoCAD Customization",
+    title: "CAD Customization",
     instructor: "Determined-Poitras",
     duration: "2Weeks",
     students: "156 Students",
@@ -73,7 +73,7 @@ export function CadCoursesSection() {
             src="/autocad.jpg"
             alt="AutoCAD Customization Background"
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-125"
           />
         )}
         {course.id === 2 && (
@@ -81,7 +81,7 @@ export function CadCoursesSection() {
             src="/h1.jpg"
             alt="CAD Customization Background"
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-125"
           />
         )}
         {course.id === 3 && (
@@ -89,16 +89,16 @@ export function CadCoursesSection() {
             src="/fc3.jpg"
             alt="Software Testing Background"
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-125"
           />
         )}
 
         {/* Dark Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
 
         {/* Enhanced Enroll Now Button */}
         <div className="absolute top-4 left-4 z-10">
-          <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 flex items-center space-x-2 border-2 border-white/20 backdrop-blur-sm">
+          <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-1 flex items-center space-x-2 border-2 border-white/20 backdrop-blur-sm">
             <span>Enroll Now</span>
           </Button>
         </div>
@@ -119,7 +119,7 @@ export function CadCoursesSection() {
         {/* Section Header */}
         <div className="flex items-center justify-between mb-12">
           <div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-[43px] font-bold text-gray-900 mb-4 font-exo">
               <span className="text-orange-500">CAD</span> Customization Courses
             </h2>
             <p className="text-lg text-gray-600">Explore our Popular Courses</p>
@@ -137,18 +137,18 @@ export function CadCoursesSection() {
           {cadCourses.map((course) => (
             <Card
               key={course.id}
-              className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden"
+              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer"
             >
               {/* Course Image */}
               {renderCourseImage(course)}
 
               {/* Course Content */}
-              <CardContent className="p-6">
+              <CardContent className="p-6 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500">
                 {/* Instructor */}
                 <p className="text-sm text-gray-600 mb-2">by {course.instructor}</p>
 
                 {/* Course Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{course.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-syne group-hover:text-orange-600 transition-colors duration-500">{course.title}</h3>
 
                 {/* Course Meta */}
                 <div className="flex items-center space-x-4 mb-4">
@@ -184,7 +184,7 @@ export function CadCoursesSection() {
                     </div>
                     <span className="text-sm text-green-600 font-medium">({course.reviews})</span>
                   </div>
-                  <Button variant="ghost" className="text-gray-900 hover:text-orange-500 font-semibold">
+                  <Button variant="ghost" className="text-gray-900 group-hover:text-orange-500 font-semibold transition-all duration-300 group-hover:scale-105">
                     View More
                   </Button>
                 </div>
