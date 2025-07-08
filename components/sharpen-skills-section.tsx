@@ -4,7 +4,7 @@ import { Code, Atom, Zap, Layers, Database } from "lucide-react"
 
 export function SharpenSkillsSection() {
   return (
-    <section className="relative w-[1170px] h-[274px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 transition-all duration-500">
+    <section className="relative w-[1290px] h-[324px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 transition-all duration-500">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200" />
       <div className="absolute inset-0 bg-gradient-to-br from-rose-100/80 via-violet-100/60 to-cyan-100/80" />

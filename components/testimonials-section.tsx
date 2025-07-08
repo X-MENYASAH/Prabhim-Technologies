@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Suraj Dhanorkar",
+    name: "Gajanan Hage",
     role: "Creative Director",
     rating: 5,
     testimonial:
@@ -26,7 +26,7 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Gajanan Hage",
+    name: "Suraj Dhanorkar",
     role: "Business Owner",
     rating: 5,
     testimonial:
@@ -95,6 +95,25 @@ export function TestimonialsSection() {
 
   return (
     <section className="py-20 px-4 lg:px-8 bg-gray-50 relative overflow-hidden">
+        {/* Dotted Pattern Ornaments - match reference image */}
+      <Image
+        src="/Ornament 2.png"
+        alt="Ornament Left Bottom"
+        width={141}
+        height={155}
+        className="absolute bottom-8 z-0 pointer-events-none select-none rotate-0 -translate-x-2/5"
+        style={{ left: '12.25rem', width: 141, height: 155 }}
+        aria-hidden="true"
+      />
+      <Image
+        src="/Ornament 2.png"
+        alt="Ornament Right Top"
+        width={141}
+        height={155}
+        className="absolute top-20 z-0 pointer-events-none select-none -rotate-0 -translate-x-2/5"
+        style={{ right: '12.25rem', width: 141, height: 155 }}
+        aria-hidden="true"
+      />
       {/* Background Dotted Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-10 left-10 w-32 h-32">
@@ -139,7 +158,7 @@ export function TestimonialsSection() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-20">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 font-syne">
@@ -151,38 +170,39 @@ export function TestimonialsSection() {
         <div className="relative flex flex-col items-center group">
           <div className="flex space-x-8 transition-transform duration-700" style={{ minWidth: 0 }}>
             {visible.map((idx, i) => {
-              const testimonial = testimonials[idx]
-              const isCenter = i === 1
+              const testimonial = testimonials[idx];
+              const isCenter = i === 1;
               return (
-                <Card
-                  key={testimonial.id + '-' + idx}
-                  className={`bg-white shadow-xl hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden border-0 cursor-pointer min-w-[340px] w-[340px] ${isCenter ? 'scale-110 z-10 ring-4 ring-orange-200' : 'opacity-70 scale-95'} group`}
-                  style={{ pointerEvents: isCenter ? 'auto' : 'none' }}
-                >
-                  {/* Orange Header with Stars and Avatar */}
-                  <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 pt-6 pb-4 relative group-hover:from-orange-600 group-hover:to-orange-700 transition-all duration-500">
-                    {/* Star Rating */}
-                    <div className="flex justify-center mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-white fill-current" />
-                      ))}
+                <div key={testimonial.id + '-' + idx} className="bg-white rounded-2xl z-20" style={{ backgroundColor: '#fff' }}>
+                  <Card
+                    className={`bg-white !bg-white shadow-xl hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden border-0 cursor-pointer min-w-[298px] w-[298px] h-[477.5px] ${isCenter ? 'scale-110 z-10 ring-4 ring-orange-200' : 'opacity-70 scale-95'} group`}
+                    style={{ pointerEvents: isCenter ? 'auto' : 'none', backgroundColor: '#fff' }}
+                  >
+                    {/* Orange Header with Stars and Avatar */}
+                    <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 pt-6 pb-4 relative group-hover:from-orange-600 group-hover:to-orange-700 transition-all duration-500">
+                      {/* Star Rating */}
+                      <div className="flex justify-center mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-5 h-5 text-white fill-current" />
+                        ))}
+                      </div>
+                      {/* Avatar positioned to overlap */}
+                      <div className="flex justify-center">
+                        <div className="relative -mb-10 z-10 group-hover:scale-110 transition-transform duration-500">{renderAvatar(testimonial.avatar, testimonial.name)}</div>
+                      </div>
                     </div>
-                    {/* Avatar positioned to overlap */}
-                    <div className="flex justify-center">
-                      <div className="relative -mb-10 z-10 group-hover:scale-110 transition-transform duration-500">{renderAvatar(testimonial.avatar, testimonial.name)}</div>
-                    </div>
-                  </div>
-                  {/* White Content Section */}
-                  <CardContent className="pt-12 pb-6 px-6 text-center group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500">
-                    {/* Testimonial Text */}
-                    <p className="text-gray-600 leading-relaxed mb-6 text-sm">"{testimonial.testimonial}"</p>
-                    {/* Name and Role */}
-                    <div>
-                      <h4 className="font-bold text-gray-900 text-lg mb-1 group-hover:text-orange-600 transition-colors duration-500">{testimonial.name}</h4>
-                    </div>
-                  </CardContent>
-                </Card>
-              )
+                    {/* White Content Section */}
+                    <CardContent className="pt-12 pb-6 px-6 text-center group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500 bg-white">
+                      {/* Testimonial Text */}
+                      <p className="text-gray-600 leading-relaxed mb-6 text-sm">"{testimonial.testimonial}"</p>
+                      {/* Name and Role */}
+                      <div>
+                        <h4 className="font-bold text-gray-900 text-lg mb-1 group-hover:text-orange-600 transition-colors duration-500">{testimonial.name}</h4>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              );
             })}
           </div>
           {/* Slider Dots */}

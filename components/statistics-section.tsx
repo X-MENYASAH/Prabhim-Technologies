@@ -79,7 +79,7 @@ function useCountUp(target: string, duration = 1500) {
 
 export function StatisticsSection() {
   return (
-    <section className="relative w-[1170px] h-[274px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 hover:border-orange-300/70 transition-all duration-500 flex items-center justify-center">
+    <section className="relative max-w-[1440px] w-full h-[381px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 hover:border-orange-300/70 transition-all duration-500 flex items-center justify-center">
       <div className="absolute inset-0">
         <Image
           src="/img.jpg"
@@ -95,8 +95,8 @@ export function StatisticsSection() {
           {statistics.map((stat, index) => (
             <Card key={index} className="bg-white/90 shadow-md rounded-xl border-0 group transition-all duration-300 hover:scale-105 hover:border-orange-400 hover:bg-orange-50 cursor-pointer">
               <CardContent className="p-8 text-center">
-                <div className="text-3xl font-bold text-orange-500 mb-2 group-hover:text-orange-600 transition-colors duration-300">{stat.number}</div>
-                <div className="text-base font-semibold text-gray-900 group-hover:text-orange-500 transition-colors duration-300">{stat.label}</div>
+                <div className="text-5xl lg:text-6xl font-extrabold text-orange-500 mb-4 group-hover:text-orange-600 transition-colors duration-300">{stat.number}</div>
+                <div className="text-xl font-bold text-gray-900 group-hover:text-orange-500 transition-colors duration-300">{stat.label}</div>
               </CardContent>
             </Card>
           ))}

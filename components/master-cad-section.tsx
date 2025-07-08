@@ -4,7 +4,7 @@ import { Layers, Zap, Settings, BarChart3, Compass, Wrench } from "lucide-react"
 
 export function MasterCadSection() {
   return (
-    <section className="relative w-[1170px] h-[274px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 transition-all duration-500">
+    <section className="relative w-[1290px] h-[324px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 transition-all duration-500">
       {/* Pink Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-pink-300 via-pink-200 to-rose-200" />
       <div className="absolute inset-0 bg-gradient-to-br from-rose-200/80 via-pink-200/60 to-pink-300/80" />
