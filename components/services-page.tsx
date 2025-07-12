@@ -283,7 +283,7 @@ export function ServicesPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 lg:px-8 overflow-hidden min-h-screen">
+      <section className="relative py-16 md:py-20 px-4 lg:px-8 overflow-hidden min-h-screen">
         {/* Background */}
         <div className="absolute inset-0">
           <Image
@@ -294,24 +294,24 @@ export function ServicesPage() {
             priority
             sizes="100vw"
           />
-         
+          <div className="absolute inset-0 bg-black/20" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* Left Content */}
-            <div className="space-y-8">
-              <div className="inline-block bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold">
+            <div className="space-y-6 md:space-y-8">
+              <div className="inline-block bg-yellow-400 text-black px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold">
                 Our Services
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Our <span className="text-orange-500">Specialized</span> CAD & PLM
                 <br />
                 Solutions
               </h1>
 
-              <p className="text-xl text-gray-700 leading-relaxed max-w-lg">
+              <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg">
                 Empowering innovation with full-cycle CAD Design, Development, and Lifecycle Management Services.
               </p>
             </div>
@@ -393,26 +393,26 @@ export function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-4 lg:px-8 bg-gray-50">
+      <section className="py-16 md:py-20 px-4 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="space-y-16">
+          <div className="space-y-16 md:space-y-20">
             {services.map((service, index) => (
               <div
                 key={service.id}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
+                className={`grid lg:grid-cols-2 gap-8 md:gap-12 items-center ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
               >
                 {/* Service Image */}
                 <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}>{renderServiceImage(service)}</div>
 
                 {/* Service Content */}
-                <div className={`space-y-6 ${index % 2 === 1 ? "lg:col-start-1" : ""}`}>
+                <div className={`space-y-4 md:space-y-6 ${index % 2 === 1 ? "lg:col-start-1" : ""}`}>
                   <div className="inline-block bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide">
                     {service.title.replace(/CAD |PLM /, "").toUpperCase()}
                   </div>
 
-                  <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">{service.title}</h2>
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">{service.title}</h2>
 
-                  <p className="text-lg text-gray-700 leading-relaxed">{service.description}</p>
+                  <p className="text-base md:text-lg text-gray-700 leading-relaxed">{service.description}</p>
 
                   <Link href={service.link}>
                     <Button className="bg-transparent border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">

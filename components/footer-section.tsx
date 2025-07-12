@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { GraduationCap, ArrowRight, Linkedin, Github, Instagram } from "lucide-react"
+import { SuccessMessage } from "@/components/ui/success-message"
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
@@ -14,18 +15,40 @@ export function FooterSection() {
 
   const [email, setEmail] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubscribe = () => {
-    // You can add your subscribe logic here
-    setEmail("");
-    setShowSuccess(true);
-    // Hide success message after 3 seconds
+    if (!email.trim()) return;
+    
+    setIsSubmitting(true);
+    
+    // Simulate API call
     setTimeout(() => {
-      setShowSuccess(false);
-    }, 3000);
+      setEmail("");
+      setShowSuccess(true);
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSubscribe();
+    }
   };
 
   return (
     <footer className="bg-white py-16 px-4 lg:px-8 border-t border-gray-100">
+      {/* Success Message */}
+      <SuccessMessage
+        isVisible={showSuccess}
+        onClose={() => setShowSuccess(false)}
+        title="Subscribed Successfully!"
+        message="Thank you for subscribing to PRABHIM. You'll now receive our latest updates and news directly in your inbox."
+        buttonText="Got it!"
+        autoClose={true}
+        autoCloseDelay={4000}
+      />
+
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
         <div className="grid lg:grid-cols-12 gap-12 mb-16">
@@ -131,27 +154,28 @@ export function FooterSection() {
 
             {/* Newsletter Form */}
             <div className="relative w-full max-w-xl">
-              {showSuccess && (
-                <div className="absolute -top-12 left-0 right-0 bg-green-500 text-white px-4 py-2 rounded-lg text-center text-sm font-medium animate-in slide-in-from-top-2 duration-300">
-                  Successfully subscribed!
-                </div>
-              )}
               <Input
                 type="email"
                 placeholder="Add your email*"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+                onKeyPress={handleKeyPress}
                 className="w-full px-6 py-4 bg-gray-800 text-white placeholder-gray-400 border-0 rounded-full focus:ring-2 focus:ring-orange-500 focus:outline-none pr-40"
+                disabled={isSubmitting}
               />
               <Button
-                className="absolute right-0 top-0 bottom-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
+                className="absolute right-0 top-0 bottom-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={handleSubscribe}
+                disabled={isSubmitting || !email.trim()}
               >
+                {isSubmitting ? (
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                ) : (
                 <ArrowRight className="w-5 h-5" />
-                <span>SUBSCRIBE</span>
+                )}
+                <span>{isSubmitting ? 'SUBSCRIBING...' : 'SUBSCRIBE'}</span>
               </Button>
             </div>
-
           </div>
         </div>
 

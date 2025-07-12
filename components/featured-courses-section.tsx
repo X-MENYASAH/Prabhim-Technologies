@@ -120,16 +120,16 @@ export function FeaturedCoursesSection() {
     <section className="py-20 px-4 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 md:mb-12 space-y-4 md:space-y-0">
           <div>
-            <h2 className="text-[43px] font-bold text-gray-900 mb-4 font-exo">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[43px] font-bold text-gray-900 mb-3 md:mb-4 font-exo">
               <span className="text-orange-500">Featured</span> Courses
             </h2>
-            <p className="text-lg text-gray-600">Explore our Popular Courses</p>
+            <p className="text-sm md:text-base lg:text-lg text-gray-600">Explore our Popular Courses</p>
           </div>
           <Button
             variant="outline"
-            className="border-gray-300 text-gray-700 hover:bg-gray-100 px-6 py-2 rounded-full bg-transparent"
+            className="border-gray-300 text-gray-700 hover:bg-gray-100 px-4 md:px-6 py-2 rounded-full bg-transparent text-sm md:text-base"
           >
             All Courses
           </Button>

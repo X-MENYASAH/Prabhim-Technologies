@@ -4,22 +4,22 @@ import { Layers, Zap, Settings, BarChart3, Compass, Wrench } from "lucide-react"
 
 export function MasterCadSection() {
   return (
-    <section className="relative w-[1290px] h-[324px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 transition-all duration-500">
+    <section className="relative w-full max-w-[1290px] min-h-[250px] md:h-[324px] mx-auto overflow-hidden rounded-3xl border-2 border-orange-200/50 transition-all duration-500">
       {/* Pink Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-pink-300 via-pink-200 to-rose-200" />
       <div className="absolute inset-0 bg-gradient-to-br from-rose-200/80 via-pink-200/60 to-pink-300/80" />
 
-      <div className="relative z-10 h-full flex items-center">
-        <div className="grid grid-cols-2 items-center w-full px-8">
+      <div className="relative z-10 h-full flex items-center py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center w-full px-4 md:px-6 lg:px-8">
           {/* Left Content */}
-          <div className="space-y-4">
-            <p className="text-sm text-gray-600 font-medium">Top Picks In CAD Automation & Customization</p>
+          <div className="space-y-3 md:space-y-4 text-center md:text-left">
+            <p className="text-xs md:text-sm text-gray-600 font-medium">Top Picks In CAD Automation & Customization</p>
 
-            <h2 className="text-3xl font-bold text-gray-900 leading-tight font-exo transition-colors duration-500">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight font-exo transition-colors duration-500">
               Master CAD Customization
             </h2>
 
-            <p className="text-sm text-gray-700 leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-700 leading-relaxed">
               "Level up your CAD skills with our curated courses—learn how to script, automate, and customize CAD
               software using tool palettes, macros, APIs, and AutoLISP."
             </p>

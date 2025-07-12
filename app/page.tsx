@@ -1,8 +1,11 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowUpRight, GraduationCap } from "lucide-react"
-import { CustomSoftwareSection } from "@/components/custom-software-section"
+import { useState } from "react"
+import { WorkingMessage } from "@/components/ui/working-message"
 import { FeaturedServicesSection } from "@/components/featured-services-section"
 import { CoursesHeroSection } from "@/components/courses-hero-section"
 import { FeaturedCoursesSection } from "@/components/featured-courses-section"
@@ -13,15 +16,33 @@ import { ProgrammingCoursesSection } from "@/components/programming-courses-sect
 import { CadCustomizationSection } from "@/components/cad-customization-section"
 import { MasterCadSection } from "@/components/master-cad-section"
 import { CadCoursesSection } from "@/components/cad-courses-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
 import { LatestArticlesSection } from "@/components/latest-articles-section"
 import { CertificatesSection } from "@/components/certificates-section"
 import { FooterSection } from "@/components/footer-section"
 import { CadSoftwareCustomizationSection } from "@/components/cad-software-customization-section"
+import { MobileMenu } from "@/components/mobile-menu"
 
 export default function PrabhimHomepage() {
+  const [showWorkingMessage, setShowWorkingMessage] = useState(false)
+
+  const handleWorkingLinkClick = (e: React.MouseEvent, linkName: string) => {
+    e.preventDefault()
+    setShowWorkingMessage(true)
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Working Message */}
+      <WorkingMessage
+        isVisible={showWorkingMessage}
+        onClose={() => setShowWorkingMessage(false)}
+        title="Working on it!"
+        message="This feature is currently under development. We're working hard to bring you something amazing!"
+        buttonText="Got it!"
+        autoClose={true}
+        autoCloseDelay={4000}
+      />
+
       {/* Header */}
       <header className="relative z-10 px-4 py-6 lg:px-8">
         <nav className="flex items-center justify-between max-w-7xl mx-auto">
@@ -45,45 +66,53 @@ export default function PrabhimHomepage() {
             >
               HOME
             </Link>
-            <Link
-              href="/services"
-              className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors"
+            <button
+              onClick={(e) => handleWorkingLinkClick(e, 'Services')}
+              className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
             >
               SERVICES
-            </Link>
-            <Link
-              href="/courses"
-              className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors"
+            </button>
+            <button
+              onClick={(e) => handleWorkingLinkClick(e, 'Courses')}
+              className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
             >
               COURSES
-            </Link>
-            <Link
-              href="/about"
-              className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors"
+            </button>
+            <button
+              onClick={(e) => handleWorkingLinkClick(e, 'About Us')}
+              className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
             >
               ABOUT US
-            </Link>
-            <Link
-              href="/contact"
-              className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors"
+            </button>
+            <button
+              onClick={(e) => handleWorkingLinkClick(e, 'Contact')}
+              className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
             >
               CONTACT
-            </Link>
-            <Link
-              href="#"
-              className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors"
+            </button>
+            <button
+              onClick={(e) => handleWorkingLinkClick(e, 'Blogs')}
+              className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
             >
               BLOGS
-            </Link>
+            </button>
           </div>
 
+          {/* Right Side - Mobile Menu and Login Button */}
+          <div className="flex items-center space-x-3 lg:space-x-0">
+            {/* Mobile Menu */}
+            <div className="lg:hidden">
+              <MobileMenu />
+            </div>
+
           {/* Login Button */}
-          <Button className="bg-black text-white hover:bg-gray-800 rounded-full px-6 py-2.5 flex items-center space-x-2 shadow-lg transition-all duration-200 hover:shadow-xl">
+            <Button className="bg-black text-white hover:bg-gray-800 rounded-full px-4 md:px-6 py-2 md:py-2.5 flex items-center space-x-2 shadow-lg transition-all duration-200 hover:shadow-xl text-sm md:text-base">
             <span className="font-medium">Login</span>
-            <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-              <ArrowUpRight className="w-3.5 h-3.5 text-black" />
+              <div className="w-5 h-5 md:w-6 md:h-6 bg-white rounded-full flex items-center justify-center">
+                <ArrowUpRight className="w-3 h-3 md:w-3.5 md:h-3.5 text-black" />
             </div>
           </Button>
+          </div>
         </nav>
       </header>
 
@@ -104,9 +133,9 @@ export default function PrabhimHomepage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-200px)]">
             {/* Left Content */}
-            <div className="space-y-10 lg:pr-8">
-              <div className="space-y-8">
-                <h1 className="text-[56px] font-bold text-gray-900 leading-[1.1] tracking-tight font-syne">
+            <div className="space-y-6 md:space-y-10 lg:pr-8">
+              <div className="space-y-6 md:space-y-8">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-gray-900 leading-[1.1] tracking-tight font-syne">
                   Empowering{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
                     Innovation
@@ -116,12 +145,12 @@ export default function PrabhimHomepage() {
                   Training Excellence
                 </h1>
 
-                <p className="text-xl text-gray-700 font-medium leading-relaxed max-w-2xl">
+                <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed max-w-2xl">
                   Custom Software Solutions | Expert-Led Training in Programming, CAD & Testing
                 </p>
               </div>
 
-              <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+              <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
                 Explore More
               </Button>
             </div>
@@ -143,9 +172,6 @@ export default function PrabhimHomepage() {
           </div>
         </div>
       </main>
-
-      {/* Custom Software Development Section */}
-      <CustomSoftwareSection />
 
       {/* Featured Services Section */}
       <FeaturedServicesSection />
@@ -176,9 +202,6 @@ export default function PrabhimHomepage() {
 
       {/* CAD Courses Section */}
       <CadCoursesSection />
-
-      {/* Testimonials Section */}
-      <TestimonialsSection />
 
       {/* Latest Articles Section */}
       <LatestArticlesSection />

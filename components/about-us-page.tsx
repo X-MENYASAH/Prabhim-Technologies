@@ -24,57 +24,42 @@ import { Input } from "@/components/ui/input"
 export function AboutUsPage() {
   const [isVisible, setIsVisible] = useState({
     hero: false,
-    solutions: false,
-    excellence: false,
+    mission: false,
+    values: false,
+    team: false,
     teaching: false,
-    talented: false,
-    features: false,
-    testimonials: false,
     learning: false,
   })
 
   const heroRef = useRef<HTMLDivElement>(null)
-  const solutionsRef = useRef<HTMLDivElement>(null)
-  const excellenceRef = useRef<HTMLDivElement>(null)
+  const missionRef = useRef<HTMLDivElement>(null)
+  const valuesRef = useRef<HTMLDivElement>(null)
+  const teamRef = useRef<HTMLDivElement>(null)
   const teachingRef = useRef<HTMLDivElement>(null)
-  const talentedRef = useRef<HTMLDivElement>(null)
-  const featuresRef = useRef<HTMLDivElement>(null)
-  const testimonialsRef = useRef<HTMLDivElement>(null)
   const learningRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
           const target = entry.target
-          if (target === heroRef.current) setIsVisible((prev) => ({ ...prev, hero: true }))
-          if (target === solutionsRef.current) setIsVisible((prev) => ({ ...prev, solutions: true }))
-          if (target === excellenceRef.current) setIsVisible((prev) => ({ ...prev, excellence: true }))
-          if (target === teachingRef.current) setIsVisible((prev) => ({ ...prev, teaching: true }))
-          if (target === talentedRef.current) setIsVisible((prev) => ({ ...prev, talented: true }))
-          if (target === featuresRef.current) setIsVisible((prev) => ({ ...prev, features: true }))
-          if (target === testimonialsRef.current) setIsVisible((prev) => ({ ...prev, testimonials: true }))
-          if (target === learningRef.current) setIsVisible((prev) => ({ ...prev, learning: true }))
-        }
-      })
-    }, observerOptions)
+          if (entry.isIntersecting) {
+            if (target === heroRef.current) setIsVisible((prev) => ({ ...prev, hero: true }))
+            if (target === missionRef.current) setIsVisible((prev) => ({ ...prev, mission: true }))
+            if (target === valuesRef.current) setIsVisible((prev) => ({ ...prev, values: true }))
+            if (target === teamRef.current) setIsVisible((prev) => ({ ...prev, team: true }))
+            if (target === teachingRef.current) setIsVisible((prev) => ({ ...prev, teaching: true }))
+            if (target === learningRef.current) setIsVisible((prev) => ({ ...prev, learning: true }))
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
 
-    const refs = [
-      heroRef,
-      solutionsRef,
-      excellenceRef,
-      teachingRef,
-      talentedRef,
-      featuresRef,
-      testimonialsRef,
-      learningRef,
-    ]
-    refs.forEach((ref) => ref.current && observer.observe(ref.current))
+    const refs = [heroRef, missionRef, valuesRef, teamRef, teachingRef, learningRef]
+    refs.forEach((ref) => {
+      if (ref.current) observer.observe(ref.current)
+    })
 
     return () => observer.disconnect()
   }, [])
@@ -239,53 +224,19 @@ export function AboutUsPage() {
         <section className="px-4 py-16 lg:px-8 bg-gray-50">
           <div className="max-w-7xl mx-auto">
             <div
-              ref={solutionsRef}
+              ref={missionRef}
               className={`text-center space-y-12 transition-all duration-1000 ease-out ${
-                isVisible.solutions ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                isVisible.mission ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
-                Powerful <span className="text-orange-500">Solutions</span>
+                Our <span className="text-orange-500">Mission</span>
               </h2>
-
-              {/* Company Logos */}
-              <div className="grid grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-                {/* SIEMENS */}
-                <div className="flex items-center justify-center h-16 w-24 bg-white rounded-lg shadow-sm">
-                  <span className="text-lg font-bold text-gray-700">SIEMENS</span>
-                </div>
-
-                {/* SolidWorks */}
-                <div className="flex items-center justify-center h-16 w-24 bg-white rounded-lg shadow-sm">
-                  <span className="text-sm font-bold text-red-600">SolidWorks</span>
-                </div>
-
-                {/* AUTOCAD */}
-                <div className="flex items-center justify-center h-16 w-24 bg-white rounded-lg shadow-sm">
-                  <span className="text-sm font-bold text-red-500">AUTOCAD</span>
-                </div>
-
-                {/* AUTODESK INVENTOR */}
-                <div className="flex items-center justify-center h-16 w-24 bg-white rounded-lg shadow-sm">
-                  <div className="text-center">
-                    <div className="text-xs font-bold text-orange-500">AUTODESK</div>
-                    <div className="text-xs font-bold text-orange-500">INVENTOR</div>
-                  </div>
-                </div>
-
-                {/* DASSAULT SYSTEMES */}
-                <div className="flex items-center justify-center h-16 w-24 bg-white rounded-lg shadow-sm">
-                  <div className="text-center">
-                    <div className="text-xs font-bold text-blue-600">DASSAULT</div>
-                    <div className="text-xs font-bold text-blue-600">SYSTEMES</div>
-                  </div>
-                </div>
-
-                {/* Fusion */}
-                <div className="flex items-center justify-center h-16 w-24 bg-white rounded-lg shadow-sm">
-                  <span className="text-sm font-bold text-orange-500">Fusion</span>
-                </div>
-              </div>
+              <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                We are committed to delivering innovative software solutions and comprehensive CAD training that
+                empowers businesses to achieve operational excellence and competitive advantage in today's
+                technology-driven marketplace.
+              </p>
             </div>
           </div>
         </section>
@@ -294,9 +245,9 @@ export function AboutUsPage() {
         <section className="px-4 py-16 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div
-              ref={excellenceRef}
+              ref={valuesRef}
               className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ease-out ${
-                isVisible.excellence ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+                isVisible.values ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
               }`}
             >
               {/* Left Side - Office Workspace Illustration */}
@@ -425,9 +376,9 @@ export function AboutUsPage() {
         <section className="px-4 py-16 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div
-              ref={talentedRef}
+              ref={teamRef}
               className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ease-out ${
-                isVisible.talented ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                isVisible.team ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
               {/* Left Content */}
@@ -492,9 +443,8 @@ export function AboutUsPage() {
         <section className="px-4 py-16 lg:px-8 bg-gray-50">
           <div className="max-w-7xl mx-auto">
             <div
-              ref={featuresRef}
               className={`transition-all duration-1000 ease-out ${
-                isVisible.features ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                isVisible.learning ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
               <div className="text-center mb-12">
@@ -587,122 +537,6 @@ export function AboutUsPage() {
                     </p>
                   </CardContent>
                 </Card>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Testimonials Section */}
-        <section className="px-4 py-16 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div
-              ref={testimonialsRef}
-              className={`transition-all duration-1000 ease-out ${
-                isVisible.testimonials ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-            >
-              <div className="text-center mb-12">
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                  Our <span className="text-orange-500">Testimonial</span>
-                </h2>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-8">
-                {/* Testimonial 1 */}
-                <Card className="bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-2xl overflow-hidden border-0">
-                  <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 pt-6 pb-4 relative">
-                    <div className="flex justify-center mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-white fill-current" />
-                      ))}
-                    </div>
-                    <div className="flex justify-center">
-                      <div className="relative -mb-10 z-10">
-                        <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center border-4 border-white shadow-lg">
-                          <span className="text-2xl font-bold text-white">JD</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <CardContent className="pt-12 pb-6 px-6 text-center">
-                    <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                      "The CAD customization course exceeded my expectations. The hands-on approach and expert guidance
-                      helped me advance my career significantly."
-                    </p>
-                    <div>
-                      <h4 className="font-bold text-gray-900 text-lg mb-1">John Doe</h4>
-                      <p className="text-gray-500 text-sm">CAD Engineer</p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Testimonial 2 */}
-                <Card className="bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-2xl overflow-hidden border-0">
-                  <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 pt-6 pb-4 relative">
-                    <div className="flex justify-center mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-white fill-current" />
-                      ))}
-                    </div>
-                    <div className="flex justify-center">
-                      <div className="relative -mb-10 z-10">
-                        <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center border-4 border-white shadow-lg">
-                          <span className="text-2xl font-bold text-white">JS</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <CardContent className="pt-12 pb-6 px-6 text-center">
-                    <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                      "Excellent programming courses with practical projects. The instructors are knowledgeable and
-                      always ready to help students succeed."
-                    </p>
-                    <div>
-                      <h4 className="font-bold text-gray-900 text-lg mb-1">Jane Smith</h4>
-                      <p className="text-gray-500 text-sm">Software Developer</p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Testimonial 3 */}
-                <Card className="bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-2xl overflow-hidden border-0">
-                  <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 pt-6 pb-4 relative">
-                    <div className="flex justify-center mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-white fill-current" />
-                      ))}
-                    </div>
-                    <div className="flex justify-center">
-                      <div className="relative -mb-10 z-10">
-                        <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full flex items-center justify-center border-4 border-white shadow-lg">
-                          <span className="text-2xl font-bold text-white">MJ</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <CardContent className="pt-12 pb-6 px-6 text-center">
-                    <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                      "The software testing course provided comprehensive knowledge and practical skills. I'm now
-                      confident in my testing abilities."
-                    </p>
-                    <div>
-                      <h4 className="font-bold text-gray-900 text-lg mb-1">Mike Johnson</h4>
-                      <p className="text-gray-500 text-sm">QA Engineer</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Navigation Dots */}
-              <div className="flex justify-center mt-8 space-x-2">
-                {[...Array(5)].map((_, index) => (
-                  <button
-                    key={index}
-                    className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                      index === 1 ? "bg-orange-500" : "bg-gray-300 hover:bg-gray-400"
-                    }`}
-                  />
-                ))}
               </div>
             </div>
           </div>

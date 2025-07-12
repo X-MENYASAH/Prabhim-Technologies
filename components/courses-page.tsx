@@ -391,22 +391,22 @@ export function CoursesPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
-            <div className="space-y-8">
-              <div className="inline-block bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-semibold">
+            <div className="space-y-6 md:space-y-8">
+              <div className="inline-block bg-yellow-400 text-black px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold">
                 Course
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 The best online <span className="text-orange-500">course</span>
                 <br />
                 for your next big move.
               </h1>
 
-              <p className="text-xl text-gray-700 leading-relaxed max-w-lg">
+              <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg">
                 Unlock transformation through hands-on learning and real-world projects.
               </p>
 
-              <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">
+              <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300">
                 Explore More
               </Button>
             </div>
@@ -488,8 +488,8 @@ export function CoursesPage() {
       <section className="py-20 px-4 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="flex items-center justify-between mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">Our Popular Courses</h2>
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 md:mb-12 space-y-4 md:space-y-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">Our Popular Courses</h2>
 
             {/* Search */}
             <div className="relative">
@@ -499,7 +499,7 @@ export function CoursesPage() {
                 placeholder="Search Something"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-4 py-2 w-64 border border-gray-300 rounded-full focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="pl-10 pr-4 py-2 w-48 md:w-64 border border-gray-300 rounded-full focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
               />
             </div>
           </div>

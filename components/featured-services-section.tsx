@@ -75,19 +75,19 @@ export function FeaturedServicesSection() {
   }
 
   return (
-    <section className="py-20 px-4 lg:px-8 bg-gray-50">
+    <section className="py-16 md:py-24 px-4 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 md:mb-12 space-y-4 md:space-y-0">
           <div>
-            <h2 className="text-[43px] font-bold text-gray-900 mb-4 font-exo">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[43px] font-bold text-gray-900 mb-3 md:mb-4 font-exo">
               <span className="text-orange-500">Featured</span> Services
             </h2>
-            <p className="text-lg text-gray-600">Explore our Services</p>
+            <p className="text-sm md:text-base lg:text-lg text-gray-600">Explore our Services</p>
           </div>
           <Button
             variant="outline"
-            className="border-gray-300 text-gray-700 hover:bg-gray-100 px-6 py-2 rounded-full bg-transparent"
+            className="border-gray-300 text-gray-700 hover:bg-gray-100 px-4 md:px-6 py-2 rounded-full bg-transparent text-sm md:text-base"
           >
             All Services
           </Button>
@@ -95,37 +95,37 @@ export function FeaturedServicesSection() {
 
         {/* Services Carousel */}
         <div className="relative flex flex-col items-center group">
-          <div className="flex space-x-8 transition-transform duration-700" style={{ minWidth: 0 }}>
+          <div className="flex space-x-3 md:space-x-6 transition-transform duration-700 overflow-x-auto pb-8 md:pb-12 scrollbar-hide px-4 md:px-8" style={{ minWidth: 0 }}>
             {visible.map((idx, i) => {
               const service = services[idx]
               const isCenter = i === 1
               return (
                 <Card
                   key={service.id + '-' + idx}
-                  className={`bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden cursor-pointer min-w-[392px] w-[392px] h-[511px] ${isCenter ? 'scale-110 z-10 ring-4 ring-orange-200' : 'opacity-70 scale-95'} group`}
-                  style={{ pointerEvents: isCenter ? 'auto' : 'none', height: 511 }}
+                  className={`bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden cursor-pointer min-w-[280px] md:min-w-[320px] w-[280px] md:w-[320px] h-[380px] md:h-[420px] ${isCenter ? 'scale-102 z-10 ring-2 ring-orange-200' : 'opacity-85 scale-99'} group flex-shrink-0 transform-gpu`}
+                  style={{ pointerEvents: isCenter ? 'auto' : 'none' }}
                 >
                   {/* Card Image */}
-                  <div className="h-[320px] relative flex items-center justify-center overflow-hidden">
+                  <div className="h-[200px] md:h-[240px] relative flex items-center justify-center overflow-hidden">
                     {service.id === 1 ? (
-                      <Image src="/h1.jpg" alt="PLM System Administration" fill className="object-cover transition-transform duration-700 group-hover:scale-125" priority />
+                      <Image src="/h1.jpg" alt="PLM System Administration" fill className="object-cover transition-transform duration-700 hover:scale-125" priority />
                     ) : service.id === 2 ? (
-                      <Image src="/web.png" alt="Web Development" fill className="object-cover transition-transform duration-700 group-hover:scale-125" priority />
+                      <Image src="/web.png" alt="Web Development" fill className="object-cover transition-transform duration-700 hover:scale-125" priority />
                     ) : service.id === 3 ? (
-                      <Image src="/h3.jpg" alt="CAD Software Customization" fill className="object-cover transition-transform duration-700 group-hover:scale-125" priority />
+                      <Image src="/h3.jpg" alt="CAD Software Customization" fill className="object-cover transition-transform duration-700 hover:scale-125" priority />
                     ) : service.id === 4 ? (
-                      <Image src="/h2.jpg" alt="Web Development" fill className="object-cover transition-transform duration-700 group-hover:scale-125" priority />
+                      <Image src="/h2.jpg" alt="Web Development" fill className="object-cover transition-transform duration-700 hover:scale-125" priority />
                     ) : null}
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
-                    <div className="absolute bottom-4 left-4 z-10">
-                      <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-1">
+                    <div className="absolute inset-0 bg-black/30 hover:bg-black/10 transition-colors duration-500" />
+                    <div className="absolute bottom-3 left-3 z-10">
+                      <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 text-xs md:text-sm">
                         Learn More
                       </Button>
                     </div>
                   </div>
-                  <CardContent className="p-4 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight font-syne group-hover:text-orange-600 transition-colors duration-500">{service.title}</h3>
-                    <p className="text-sm text-gray-600 leading-snug group-hover:text-gray-700 transition-colors duration-500">{service.description}</p>
+                  <CardContent className="p-3 md:p-4 hover:bg-gradient-to-br hover:from-gray-50 hover:to-white transition-all duration-500">
+                    <h3 className="text-sm md:text-base font-bold text-gray-900 mb-2 md:mb-3 leading-tight font-syne hover:text-orange-600 transition-colors duration-500">{service.title}</h3>
+                    <p className="text-xs text-gray-600 leading-snug hover:text-gray-700 transition-colors duration-500 line-clamp-3">{service.description}</p>
                   </CardContent>
                 </Card>
               )
