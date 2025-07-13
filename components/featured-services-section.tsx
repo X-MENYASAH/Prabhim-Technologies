@@ -95,37 +95,37 @@ export function FeaturedServicesSection() {
 
         {/* Services Carousel */}
         <div className="relative flex flex-col items-center group">
-          <div className="flex space-x-3 md:space-x-6 transition-transform duration-700 overflow-x-auto pb-8 md:pb-12 scrollbar-hide px-4 md:px-8" style={{ minWidth: 0 }}>
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 items-stretch w-full overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory">
             {visible.map((idx, i) => {
               const service = services[idx]
               const isCenter = i === 1
               return (
                 <Card
                   key={service.id + '-' + idx}
-                  className={`bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden cursor-pointer min-w-[280px] md:min-w-[320px] w-[280px] md:w-[320px] h-[380px] md:h-[420px] ${isCenter ? 'scale-102 z-10 ring-2 ring-orange-200' : 'opacity-85 scale-99'} group flex-shrink-0 transform-gpu`}
+                  className={`bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden cursor-pointer h-[455px] min-w-[280px] md:min-w-auto ${isCenter ? 'scale-102 z-10 ring-2 ring-orange-200' : 'opacity-85 scale-99'} group flex flex-col transform-gpu flex-shrink-0 snap-center`}
                   style={{ pointerEvents: isCenter ? 'auto' : 'none' }}
                 >
                   {/* Card Image */}
-                  <div className="h-[200px] md:h-[240px] relative flex items-center justify-center overflow-hidden">
+                  <div className="h-64 relative flex items-center justify-center overflow-hidden">
                     {service.id === 1 ? (
-                      <Image src="/h1.jpg" alt="PLM System Administration" fill className="object-cover transition-transform duration-700 hover:scale-125" priority />
+                      <Image src="/h1.jpg" alt="PLM System Administration" fill className="object-cover transition-transform duration-700 group-hover:scale-125" priority />
                     ) : service.id === 2 ? (
-                      <Image src="/web.png" alt="Web Development" fill className="object-cover transition-transform duration-700 hover:scale-125" priority />
+                      <Image src="/web.png" alt="Web Development" fill className="object-cover transition-transform duration-700 group-hover:scale-125" priority />
                     ) : service.id === 3 ? (
-                      <Image src="/h3.jpg" alt="CAD Software Customization" fill className="object-cover transition-transform duration-700 hover:scale-125" priority />
+                      <Image src="/h3.jpg" alt="CAD Software Customization" fill className="object-cover transition-transform duration-700 group-hover:scale-125" priority />
                     ) : service.id === 4 ? (
-                      <Image src="/h2.jpg" alt="Web Development" fill className="object-cover transition-transform duration-700 hover:scale-125" priority />
+                      <Image src="/h2.jpg" alt="Web Development" fill className="object-cover transition-transform duration-700 group-hover:scale-125" priority />
                     ) : null}
-                    <div className="absolute inset-0 bg-black/30 hover:bg-black/10 transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
                     <div className="absolute bottom-3 left-3 z-10">
-                      <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 text-xs md:text-sm">
+                      <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-1 text-xs md:text-sm">
                         Learn More
                       </Button>
                     </div>
                   </div>
-                  <CardContent className="p-3 md:p-4 hover:bg-gradient-to-br hover:from-gray-50 hover:to-white transition-all duration-500">
-                    <h3 className="text-sm md:text-base font-bold text-gray-900 mb-2 md:mb-3 leading-tight font-syne hover:text-orange-600 transition-colors duration-500">{service.title}</h3>
-                    <p className="text-xs text-gray-600 leading-snug hover:text-gray-700 transition-colors duration-500 line-clamp-3">{service.description}</p>
+                  <CardContent className="p-6 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500 flex flex-col flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-500 font-syne">{service.title}</h3>
+                    <p className="text-gray-600 leading-relaxed flex-1">{service.description}</p>
                   </CardContent>
                 </Card>
               )

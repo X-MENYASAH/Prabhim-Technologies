@@ -103,6 +103,16 @@ html {
   }
 }
 
+/* Touch-friendly mobile menu styles */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 .animate-float {
   animation: float 4s ease-in-out infinite;
   animation-play-state: running;

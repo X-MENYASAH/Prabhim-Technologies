@@ -15,8 +15,7 @@ const courses = [
     topics: [
       "Master basic syntax, data types, and control structures",
       "Understand pointers, memory management, and dynamic allocation",
-      "Learn Object-Oriented Programming (OOP): classes, inheritance, polymorphism",
-      "Practice using the Standard Template Library (STL) for efficient code reuse",
+      "Learn Object-Oriented Programming (OOP)"
     ],
     rating: 4.5,
     reviews: 124,
@@ -70,8 +69,9 @@ export function FeaturedCoursesSection() {
             src="/fc1.jpg"
             alt="Programming Languages"
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-125"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-125"
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         )}
         {course.id === 2 && (
@@ -79,8 +79,9 @@ export function FeaturedCoursesSection() {
             src="/fc2.jpg"
             alt="CAD Customization"
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-125"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-125"
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         )}
         {course.id === 3 && (
@@ -88,8 +89,9 @@ export function FeaturedCoursesSection() {
             src="/fc3.jpg"
             alt="Software Testing"
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-125"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-125"
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         )}
 
@@ -140,37 +142,37 @@ export function FeaturedCoursesSection() {
           {courses.map((course) => (
             <Card
               key={course.id}
-              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer h-full flex flex-col"
+              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer h-[455px] flex flex-col"
             >
               {/* Course Image */}
               {renderCourseImage(course)}
 
               {/* Course Content */}
-              <CardContent className="p-6 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500 flex flex-col flex-1">
+              <CardContent className="p-4 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500 flex flex-col flex-1">
                 {/* Course Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-500">{course.title}</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-500">{course.title}</h3>
 
                 {/* Course Meta */}
-                <div className="flex items-center space-x-4 mb-4">
+                <div className="flex items-center space-x-3 mb-2">
                   <div className="flex items-center space-x-1 text-orange-500">
-                    <Clock className="w-4 h-4" />
-                    <span className="text-sm font-medium">{course.duration}</span>
+                    <Clock className="w-3 h-3" />
+                    <span className="text-xs font-medium">{course.duration}</span>
                   </div>
                   <div className="flex items-center space-x-1 text-orange-500">
-                    <Users className="w-4 h-4" />
-                    <span className="text-sm font-medium">{course.students}</span>
+                    <Users className="w-3 h-3" />
+                    <span className="text-xs font-medium">{course.students}</span>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 mb-4 leading-relaxed">"{course.description}"</p>
+                <p className="text-gray-600 mb-3 leading-relaxed text-sm">"{course.description}"</p>
 
                 {/* Topics */}
-                <ul className="gap-y-2 flex flex-col">
+                <ul className="gap-y-1 flex flex-col">
                   {course.topics.map((topic, index) => (
                     <li key={index} className="flex items-start space-x-2 text-gray-600">
-                      <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-sm">{topic}</span>
+                      <div className="w-1.5 h-1.5 bg-orange-500 rounded-full mt-1.5 flex-shrink-0" />
+                      <span className="text-xs">{topic}</span>
                     </li>
                   ))}
                 </ul>
@@ -179,12 +181,12 @@ export function FeaturedCoursesSection() {
                 <div className="flex items-center justify-between mt-auto pt-2">
                   <div className="flex items-center space-x-2">
                     <div className="flex items-center space-x-1">
-                      <span className="text-lg font-bold text-gray-900">{course.rating}</span>
-                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                      <span className="text-sm font-bold text-gray-900">{course.rating}</span>
+                      <Star className="w-3 h-3 text-yellow-400 fill-current" />
                     </div>
-                    <span className="text-sm text-green-600 font-medium">({course.reviews})</span>
+                    <span className="text-xs text-green-600 font-medium">({course.reviews})</span>
                   </div>
-                  <Button variant="ghost" className="text-gray-900 group-hover:text-orange-500 font-semibold transition-all duration-300 group-hover:scale-105">
+                  <Button variant="ghost" className="text-gray-900 group-hover:text-orange-500 font-semibold transition-all duration-300 group-hover:scale-105 text-sm">
                     View More
                   </Button>
                 </div>
