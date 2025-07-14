@@ -62,7 +62,7 @@ const courses = [
 export function FeaturedCoursesSection() {
   const renderCourseImage = (course: (typeof courses)[0]) => {
     return (
-      <div className="relative h-64 rounded-t-2xl overflow-hidden group">
+      <div className="relative h-48 rounded-t-2xl overflow-hidden group">
         {/* Background Image */}
         {course.id === 1 && (
           <Image
@@ -142,7 +142,7 @@ export function FeaturedCoursesSection() {
           {courses.map((course) => (
             <Card
               key={course.id}
-              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer h-[455px] flex flex-col"
+              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer h-[600px] flex flex-col w-[393.33px] mx-auto"
             >
               {/* Course Image */}
               {renderCourseImage(course)}
@@ -150,43 +150,43 @@ export function FeaturedCoursesSection() {
               {/* Course Content */}
               <CardContent className="p-4 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500 flex flex-col flex-1">
                 {/* Course Title */}
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-500">{course.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-500">{course.title}</h3>
 
                 {/* Course Meta */}
-                <div className="flex items-center space-x-3 mb-2">
+                <div className="flex items-center space-x-3 mb-3">
                   <div className="flex items-center space-x-1 text-orange-500">
-                    <Clock className="w-3 h-3" />
-                    <span className="text-xs font-medium">{course.duration}</span>
+                    <Clock className="w-5 h-5" />
+                    <span className="text-base font-medium">{course.duration}</span>
                   </div>
                   <div className="flex items-center space-x-1 text-orange-500">
-                    <Users className="w-3 h-3" />
-                    <span className="text-xs font-medium">{course.students}</span>
+                    <Users className="w-5 h-5" />
+                    <span className="text-base font-medium">{course.students}</span>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 mb-3 leading-relaxed text-sm">"{course.description}"</p>
+                <p className="text-gray-600 mb-4 leading-relaxed text-lg">"{course.description}"</p>
 
                 {/* Topics */}
-                <ul className="gap-y-1 flex flex-col">
+                <ul className="gap-y-2 flex flex-col">
                   {course.topics.map((topic, index) => (
-                    <li key={index} className="flex items-start space-x-2 text-gray-600">
-                      <div className="w-1.5 h-1.5 bg-orange-500 rounded-full mt-1.5 flex-shrink-0" />
-                      <span className="text-xs">{topic}</span>
+                    <li key={index} className="flex items-start space-x-3 text-gray-600">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
+                      <span className="text-lg">{topic}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Rating and View More */}
-                <div className="flex items-center justify-between mt-auto pt-2">
+                <div className="flex items-center justify-between mt-auto pt-3">
                   <div className="flex items-center space-x-2">
                     <div className="flex items-center space-x-1">
-                      <span className="text-sm font-bold text-gray-900">{course.rating}</span>
-                      <Star className="w-3 h-3 text-yellow-400 fill-current" />
+                      <span className="text-lg font-bold text-gray-900">{course.rating}</span>
+                      <Star className="w-5 h-5 text-yellow-400 fill-current" />
                     </div>
-                    <span className="text-xs text-green-600 font-medium">({course.reviews})</span>
+                    <span className="text-base text-green-600 font-medium">({course.reviews})</span>
                   </div>
-                  <Button variant="ghost" className="text-gray-900 group-hover:text-orange-500 font-semibold transition-all duration-300 group-hover:scale-105 text-sm">
+                  <Button variant="ghost" className="text-xl text-gray-900 group-hover:text-orange-500 font-semibold transition-all duration-300 group-hover:scale-105">
                     View More
                   </Button>
                 </div>

@@ -13,10 +13,10 @@ export function ZoomController() {
         // Fallback for browsers that don't support zoom
         if (document.body.style.zoom === undefined) {
           // Use transform scale as fallback
-          document.body.style.transform = 'scale(1.0)'
+          document.body.style.transform = 'scale(0.80)'
           document.body.style.transformOrigin = 'top left'
-          document.body.style.width = '100%' // Compensate for scale
-          document.body.style.height = '100%'
+          document.body.style.width = '80%' // Compensate for scale
+          document.body.style.height = '80%'
         }
       } catch (error) {
         console.log('Zoom setting not supported in this browser')
