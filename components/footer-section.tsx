@@ -166,7 +166,7 @@ export function FooterSection() {
               <Button
                 className="absolute right-0 top-0 bottom-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={handleSubscribe}
-                disabled={isSubmitting || !email.trim()}
+                // removed disabled prop so button is always enabled
               >
                 {isSubmitting ? (
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

@@ -62,7 +62,7 @@ const courses = [
 export function FeaturedCoursesSection() {
   const renderCourseImage = (course: (typeof courses)[0]) => {
     return (
-      <div className="relative h-48 rounded-t-2xl overflow-hidden group">
+      <div className="relative h-[30%] rounded-t-2xl overflow-hidden group">
         {/* Background Image */}
         {course.id === 1 && (
           <Image
@@ -142,18 +142,70 @@ export function FeaturedCoursesSection() {
           {courses.map((course) => (
             <Card
               key={course.id}
-              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer h-[600px] flex flex-col w-[393.33px] mx-auto"
+              className="bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden group hover:-translate-y-2 cursor-pointer h-[711px] flex flex-col w-[393.33px] mx-auto"
             >
               {/* Course Image */}
-              {renderCourseImage(course)}
+              <div className="relative w-[394px] h-[250px] rounded-t-2xl overflow-hidden group mx-auto">
+                {/* Background Image */}
+                {course.id === 1 && (
+                  <Image
+                    src="/fc1.jpg"
+                    alt="Programming Languages"
+                    fill
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-125"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                )}
+                {course.id === 2 && (
+                  <Image
+                    src="/fc2.jpg"
+                    alt="CAD Customization"
+                    fill
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-125"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                )}
+                {course.id === 3 && (
+                  <Image
+                    src="/fc3.jpg"
+                    alt="Software Testing"
+                    fill
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-125"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                )}
+
+                {/* Dark Overlay for Better Text Readability */}
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
+
+                {/* Enhanced Enroll Now Button */}
+                <div className="absolute top-4 left-4 z-10">
+                  <Button 
+                    className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-1 flex items-center space-x-2 border-2 border-white/20 backdrop-blur-sm"
+                  >
+                    <span>Enroll Now</span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </div>
+
+                {/* Floating Badge */}
+                <div className="absolute top-4 right-4 z-10">
+                  <div className="bg-white/90 backdrop-blur-sm text-orange-600 px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                    Featured
+                  </div>
+                </div>
+              </div>
 
               {/* Course Content */}
               <CardContent className="p-4 group-hover:bg-gradient-to-br group-hover:from-gray-50 group-hover:to-white transition-all duration-500 flex flex-col flex-1">
                 {/* Course Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-500">{course.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-500">{course.title}</h3>
 
                 {/* Course Meta */}
-                <div className="flex items-center space-x-3 mb-3">
+                <div className="flex items-center space-x-2 mb-2">
                   <div className="flex items-center space-x-1 text-orange-500">
                     <Clock className="w-5 h-5" />
                     <span className="text-base font-medium">{course.duration}</span>
@@ -165,28 +217,28 @@ export function FeaturedCoursesSection() {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 mb-4 leading-relaxed text-lg">"{course.description}"</p>
+                <p className="text-gray-600 mb-3 leading-relaxed text-base">"{course.description}"</p>
 
                 {/* Topics */}
-                <ul className="gap-y-2 flex flex-col">
+                <ul className="gap-y-1 flex flex-col">
                   {course.topics.map((topic, index) => (
-                    <li key={index} className="flex items-start space-x-3 text-gray-600">
-                      <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-lg">{topic}</span>
+                    <li key={index} className="flex items-start space-x-2 text-gray-600">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full mt-1 flex-shrink-0" />
+                      <span className="text-base">{topic}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Rating and View More */}
-                <div className="flex items-center justify-between mt-auto pt-3">
-                  <div className="flex items-center space-x-2">
+                <div className="flex items-center justify-between mt-auto pt-2">
+                  <div className="flex items-center space-x-1">
                     <div className="flex items-center space-x-1">
-                      <span className="text-lg font-bold text-gray-900">{course.rating}</span>
+                      <span className="text-base font-bold text-gray-900">{course.rating}</span>
                       <Star className="w-5 h-5 text-yellow-400 fill-current" />
                     </div>
-                    <span className="text-base text-green-600 font-medium">({course.reviews})</span>
+                    <span className="text-sm text-green-600 font-medium">({course.reviews})</span>
                   </div>
-                  <Button variant="ghost" className="text-xl text-gray-900 group-hover:text-orange-500 font-semibold transition-all duration-300 group-hover:scale-105">
+                  <Button variant="ghost" className="text-lg text-gray-900 group-hover:text-orange-500 font-semibold transition-all duration-300 group-hover:scale-105">
                     View More
                   </Button>
                 </div>
