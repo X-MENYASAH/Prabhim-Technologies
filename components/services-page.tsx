@@ -17,6 +17,7 @@ import {
   Instagram,
 } from "lucide-react"
 import Link from "next/link"
+import { FooterSection } from "@/components/footer-section"
 
 const services = [
   {
@@ -48,7 +49,7 @@ const services = [
   },
   {
     id: 4,
-    title: "Web Development",
+    title: "CAD PLM Administration",
     description:
       "It managing and maintaining CAD and Product Lifecycle Management (PLM) systems to ensure smooth operations.",
     icon: Database,
@@ -86,6 +87,78 @@ const companyLogos = [
 
 export function ServicesPage() {
   const renderServiceImage = (service: (typeof services)[0]) => {
+    if (service.title === "Design Engineering") {
+      return (
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+          <Image
+            src="/des.jpg"
+            alt="Design Engineering"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+      )
+    }
+    if (service.title === "CAD Software Customization") {
+      return (
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+          <Image
+            src="/cad.jpg"
+            alt="CAD Software Customization"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+      )
+    }
+    if (service.title === "CAD Software Development") {
+      return (
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+          <Image
+            src="/cad soft.jpg"
+            alt="CAD Software Development"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+      )
+    }
+    if (service.title === "CAD PLM Administration") {
+      return (
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+          <Image
+            src="/cad plm.jpg"
+            alt="CAD PLM Administration"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+      )
+    }
+    if (service.title === "PLM Implementation") {
+      return (
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+          <Image
+            src="/plm.jpg"
+            alt="PLM Implementation"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+      )
+    }
+    if (service.title === "PLM Customization") {
+      return (
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+          <Image
+            src="/plm cust.jpg"
+            alt="PLM Customization"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+      )
+    }
     return (
       <div className={`relative h-64 bg-gradient-to-br ${service.bgGradient} rounded-2xl overflow-hidden`}>
         {/* Background Pattern */}
@@ -285,16 +358,16 @@ export function ServicesPage() {
       {/* Hero Section */}
       <section className="relative py-16 md:py-20 px-4 lg:px-8 overflow-hidden min-h-screen">
         {/* Background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 flex justify-end items-center" style={{ minHeight: 507 }}>
           <Image
-            src="/background.png"
+            src="/Ser back.jpg"
             alt="Background"
-            fill
+            width={1014}
+            height={507}
             className="object-cover object-center"
             priority
-            sizes="100vw"
+            style={{ width: 1014, height: 507, maxWidth: '100%', maxHeight: '100%' }}
           />
-          <div className="absolute inset-0 bg-black/20" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -393,201 +466,85 @@ export function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 md:py-20 px-4 lg:px-8 bg-gray-50">
+      <section className="py-16 md:py-20 px-4 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-16 md:space-y-20">
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className={`grid lg:grid-cols-2 gap-8 md:gap-12 items-center ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
-              >
-                {/* Service Image */}
-                <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}>{renderServiceImage(service)}</div>
-
-                {/* Service Content */}
-                <div className={`space-y-4 md:space-y-6 ${index % 2 === 1 ? "lg:col-start-1" : ""}`}>
-                  <div className="inline-block bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide">
-                    {service.title.replace(/CAD |PLM /, "").toUpperCase()}
+            {services.map((service, index) => {
+              if (service.title === "CAD Software Customization") {
+                return (
+                  <div key={service.id} className="grid lg:grid-cols-2 gap-0 md:gap-0 items-stretch rounded-2xl overflow-hidden shadow-xl bg-transparent">
+                    {/* Left: Card */}
+                    <div className="flex flex-col justify-center bg-white p-8 md:p-12" style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.10)' }}>
+                      <div className="text-lg font-bold tracking-widest text-gray-700 mb-2 uppercase">{service.title}</div>
+                      <div className="text-xl md:text-2xl text-gray-800 font-medium mb-6">{service.description}</div>
+                      <Link href={service.link} className="mt-auto">
+                        <Button className="bg-transparent border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
+                          <span>Read More</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </Button>
+                      </Link>
+                    </div>
+                    {/* Right: Image */}
+                    <div className="relative min-h-[300px] h-full w-full">
+                      <Image
+                        src="/cad.jpg"
+                        alt="CAD Software Customization"
+                        fill
+                        className="object-cover object-center"
+                        style={{ minHeight: 300 }}
+                      />
+                    </div>
                   </div>
-
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">{service.title}</h2>
-
-                  <p className="text-base md:text-lg text-gray-700 leading-relaxed">{service.description}</p>
-
-                  <Link href={service.link}>
-                    <Button className="bg-transparent border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
-                      <span>Read More</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Button>
-                  </Link>
+                )
+              }
+              return (
+                <div
+                  key={service.id}
+                  className={`grid lg:grid-cols-2 gap-8 md:gap-12 items-center ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
+                >
+                  {/* Service Image */}
+                  <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}>{renderServiceImage(service)}</div>
+                  {/* Service Content */}
+                  <div className={`space-y-4 md:space-y-6 ${index % 2 === 1 ? "lg:col-start-1" : ""}`}>
+                    <div className="inline-block bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide">
+                      {service.title.replace(/CAD |PLM /, "").toUpperCase()}
+                    </div>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">{service.title}</h2>
+                    <p className="text-base md:text-lg text-gray-700 leading-relaxed">{service.description}</p>
+                    <Link href={service.link}>
+                      <Button className="bg-transparent border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
+                        <span>Read More</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* Company Logos Section */}
-      <section className="py-16 px-4 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {companyLogos.map((logo, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <div className="text-center">
-                  <div className="text-lg font-bold text-gray-700 mb-1">{logo.name}</div>
-                  {logo.subtitle && <div className="text-xs text-gray-500">{logo.subtitle}</div>}
-                </div>
-              </div>
-            ))}
+      <section className="py-16 px-4 lg:px-8">
+        <div className="overflow-hidden w-full">
+          <div className="flex space-x-12 animate-logo-scroll items-center" style={{ minHeight: 100 }}>
+            <img src="/Group.png" alt="Group" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 1.png" alt="Group 1" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 2.png" alt="Group 2" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 3.png" alt="Group 3" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 4.png" alt="Group 4" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            {/* Duplicate for seamless loop */}
+            <img src="/Group.png" alt="Group" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 1.png" alt="Group 1" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 2.png" alt="Group 2" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 3.png" alt="Group 3" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 4.png" alt="Group 4" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white py-16 px-4 lg:px-8 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          {/* Main Footer Content */}
-          <div className="grid lg:grid-cols-12 gap-12 mb-16">
-            {/* Company Info - Left Side */}
-            <div className="lg:col-span-4 space-y-6">
-              {/* Logo */}
-              <div className="flex items-center">
-                <Image
-                  src="/logo1.png"
-                  alt="PRABHIM Logo"
-                  width={216.56}
-                  height={143}
-                  className="h-[143px] w-auto object-contain"
-                  priority
-                />
-              </div>
-
-              {/* Company Description */}
-              <p className="text-gray-600 leading-relaxed max-w-md">
-                We provide full-cycle software development services to help businesses innovate and grow. Our team
-                builds secure, high-quality applications using modern technologies and frameworks.
-              </p>
-            </div>
-
-            {/* Navigation Links - Right Side */}
-            <div className="lg:col-span-8 grid md:grid-cols-3 gap-8 mt-5">
-              {/* Company */}
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-6">Company</h3>
-                <ul className="space-y-4">
-                  <li>
-                    <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      About Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Contact Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Blogs
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Useful Links */}
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-6">Useful Links</h3>
-                <ul className="space-y-4">
-                  <li>
-                    <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/courses" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Courses
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Blogs
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Newsletter Section */}
-          <div className="mb-12">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              {/* Newsletter Text */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Get the latest updates Subscribe us</h3>
-                <p className="text-gray-600">Subscribe to PRABHIM</p>
-              </div>
-
-              {/* Newsletter Form */}
-              <div className="flex space-x-4">
-                <div className="flex-1">
-                  <input
-                    type="email"
-                    placeholder="Add your email*"
-                    className="w-full px-6 py-4 bg-gray-800 text-white placeholder-gray-400 border-0 rounded-full focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                  />
-                </div>
-                <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2">
-                  <span>SUBSCRIBE</span>
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Section */}
-          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-100">
-            {/* Copyright */}
-            <div className="text-gray-600 mb-4 md:mb-0">©2024 All rights reserved</div>
-
-            {/* Social Media Icons */}
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <Linkedin className="w-6 h-6 text-white" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <Github className="w-6 h-6 text-white" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <Instagram className="w-6 h-6 text-white" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <FooterSection />
     </div>
   )
 }

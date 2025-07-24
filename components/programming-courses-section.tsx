@@ -239,7 +239,7 @@ export function ProgrammingCoursesSection() {
                     <span className="text-sm text-green-600 font-medium">({course.reviews})</span>
                   </div>
                   <Button variant="ghost" className="text-lg text-gray-900 group-hover:text-orange-500 font-semibold transition-all duration-300 group-hover:scale-105">
-                    View More
+                    ₹799
                   </Button>
                 </div>
               </CardContent>

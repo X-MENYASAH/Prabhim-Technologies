@@ -9,7 +9,7 @@ import { WorkingMessage } from "@/components/ui/working-message"
 import { FeaturedServicesSection } from "@/components/featured-services-section"
 import { CoursesHeroSection } from "@/components/courses-hero-section"
 import { FeaturedCoursesSection } from "@/components/featured-courses-section"
-import { StatisticsSection } from "@/components/statistics-section"
+// import { StatisticsSection } from "@/components/statistics-section"
 import { ProgrammingTrainingSection } from "@/components/programming-training-section"
 import { SharpenSkillsSection } from "@/components/sharpen-skills-section"
 import { ProgrammingCoursesSection } from "@/components/programming-courses-section"
@@ -66,12 +66,12 @@ export default function PrabhimHomepage() {
             >
               HOME
             </Link>
-            <button
-              onClick={(e) => handleWorkingLinkClick(e, 'Services')}
+            <Link
+              href="/services"
               className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
             >
               SERVICES
-            </button>
+            </Link>
             <button
               onClick={(e) => handleWorkingLinkClick(e, 'Courses')}
               className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
@@ -182,8 +182,8 @@ export default function PrabhimHomepage() {
       {/* Featured Courses Section */}
       <FeaturedCoursesSection />
 
-      {/* Statistics Section */}
-      <StatisticsSection />
+      {/* Statistics Section (disabled for now) */}
+      {/** <StatisticsSection /> **/}
 
       {/* Programming Training Section */}
       <ProgrammingTrainingSection />

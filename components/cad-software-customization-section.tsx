@@ -12,7 +12,7 @@ export function CadSoftwareCustomizationSection() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight font-syne">
-                <span className="text-orange-500">CAD Software</span>
+                <span className="text-orange-500">NX</span>
                 <span className="text-gray-900"> Customization</span>
                 <br />
                 <span className="text-gray-900">Training</span>
@@ -33,7 +33,7 @@ export function CadSoftwareCustomizationSection() {
             <div className="relative w-full max-w-2xl h-[400px] lg:h-[500px] animate-float-alt">
               <Image
                 src="/cad.png"
-                alt="CAD Software Customization Training"
+                alt="NX Customization Training"
                 fill
                 className="object-cover rounded-2xl"
                 priority

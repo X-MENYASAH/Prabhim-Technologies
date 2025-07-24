@@ -225,7 +225,7 @@ export function CadCustomizationPage() {
               Courses
             </Link>
             <span>/</span>
-            <span className="text-orange-500">CAD Customization</span>
+            <span className="text-orange-500">NX</span> Customization
           </div>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -243,7 +243,7 @@ export function CadCustomizationPage() {
               </div>
             </div>
             <div className="text-sm text-gray-600">
-              <span className="font-medium">Categories:</span> CAD Customization
+              <span className="font-medium">Categories:</span> NX Customization
             </div>
           </div>
         </div>
@@ -372,11 +372,11 @@ export function CadCustomizationPage() {
                 <h2 className="text-3xl font-bold text-gray-900">About Course</h2>
                 <div className="prose prose-lg text-gray-700 max-w-none">
                   <p>
-                    Welcome to CAD customization learning in this present era, you may struggle to progress in life.
+                    Welcome to NX customization learning in this present era, you may struggle to progress in life.
                     Because of the lack of proper skills and knowledge. But with this course, you can build your career
-                    in CAD customization. Therefore, this course which will help you can build your career if you
+                    in NX customization. Therefore, this course which will help you can build your career if you
                     haven't different technical skills. they can help you to build your career and understand the future
-                    of CAD customization.
+                    of NX customization.
                   </p>
                 </div>
               </div>
@@ -387,12 +387,12 @@ export function CadCustomizationPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-4">
                     <p className="text-gray-700">
-                      You will learn CAD customization in a different way. You will learn how to create custom
-                      commands, menus, toolbars, and dialog boxes. You will also learn how to use AutoCAD's built-in
+                      You will learn NX customization in a different way. You will learn how to create custom
+                      commands, menus, toolbars, and dialog boxes. You will also learn how to use NX's built-in
                       programming tools from basic level to advanced level with practical examples.
                     </p>
                     <p className="text-gray-700">
-                      After completing this course, you'll be taught how to use AutoCAD's built-in programming tools
+                      After completing this course, you'll be taught how to use NX's built-in programming tools
                       from basic level to advanced level with practical examples.
                     </p>
                     <p className="text-gray-700">

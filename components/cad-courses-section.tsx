@@ -26,14 +26,14 @@ const cadCourses = [
   },
   {
     id: 2,
-    title: "CAD Customization",
+    title: "NX Customization",
     duration: "2Weeks",
     students: "156 Students",
-    description: "Learn to customize CAD tools for precise engineering and product design.",
+    description: "Learn to customize NX tools for precise engineering and product design.",
     topics: [
-      "Parametric modeling in AutoCAD and SolidWorks",
-      "Custom tool palettes and macros",
-      "Scripting using VBA or Python APIs",
+      "Learn how to automate 3D modeling, assemblies, and drawings in Siemens NX",
+      "Master NX Open API with C# .NET for real-world CAD customization",
+      "Build tools to replace repetitive manual design tasks with code",
     ],
     rating: 4.5,
     reviews: 124,
@@ -43,14 +43,14 @@ const cadCourses = [
   },
   {
     id: 3,
-    title: "Software Testing",
+    title: "Solidworks API",
     duration: "2Weeks",
     students: "156 Students",
     description: "Acquire hands-on testing skills for quality assurance in software.",
     topics: [
-      "Manual test case design & execution",
-      "Automated testing with Selenium and Cypress",
-      "API testing using Postman or REST",
+      "Use SolidWorks API with C# to build custom tools and design workflows",
+      "Eliminate repetitive design tasks through smart programming techniques",
+      "Gain skills that lead to high-salary roles in CAD automation and design engineering",
     ],
     rating: 4.5,
     reviews: 124,
@@ -77,7 +77,7 @@ export function CadCoursesSection() {
         {course.id === 2 && (
           <Image
             src="/h1.jpg"
-            alt="CAD Customization Background"
+            alt="NX Customization Background"
             fill
             className="object-cover object-center transition-transform duration-700 group-hover:scale-125"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
