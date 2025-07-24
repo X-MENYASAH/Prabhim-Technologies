@@ -89,73 +89,79 @@ export function ServicesPage() {
   const renderServiceImage = (service: (typeof services)[0]) => {
     if (service.title === "Design Engineering") {
       return (
-        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center group transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
           <Image
             src="/des.jpg"
             alt="Design Engineering"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
           />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500" />
         </div>
       )
     }
     if (service.title === "CAD Software Customization") {
       return (
-        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center group transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
           <Image
             src="/cad.jpg"
             alt="CAD Software Customization"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
           />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500" />
         </div>
       )
     }
     if (service.title === "CAD Software Development") {
       return (
-        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center group transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
           <Image
             src="/cad soft.jpg"
             alt="CAD Software Development"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
           />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500" />
         </div>
       )
     }
     if (service.title === "CAD PLM Administration") {
       return (
-        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center group transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
           <Image
             src="/cad plm.jpg"
             alt="CAD PLM Administration"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
           />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500" />
         </div>
       )
     }
     if (service.title === "PLM Implementation") {
       return (
-        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center group transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
           <Image
             src="/plm.jpg"
             alt="PLM Implementation"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
           />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500" />
         </div>
       )
     }
     if (service.title === "PLM Customization") {
       return (
-        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center">
+        <div className="relative h-64 rounded-2xl overflow-hidden flex items-center justify-center group transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer">
           <Image
             src="/plm cust.jpg"
             alt="PLM Customization"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
           />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500" />
         </div>
       )
     }
@@ -368,6 +374,7 @@ export function ServicesPage() {
             priority
             style={{ width: 1014, height: 507, maxWidth: '100%', maxHeight: '100%' }}
           />
+          <div className="absolute inset-0 animated-gradient-overlay rounded-xl" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -472,27 +479,25 @@ export function ServicesPage() {
             {services.map((service, index) => {
               if (service.title === "CAD Software Customization") {
                 return (
-                  <div key={service.id} className="grid lg:grid-cols-2 gap-0 md:gap-0 items-stretch rounded-2xl overflow-hidden shadow-xl bg-transparent">
-                    {/* Left: Card */}
-                    <div className="flex flex-col justify-center bg-white p-8 md:p-12" style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.10)' }}>
-                      <div className="text-lg font-bold tracking-widest text-gray-700 mb-2 uppercase">{service.title}</div>
-                      <div className="text-xl md:text-2xl text-gray-800 font-medium mb-6">{service.description}</div>
-                      <Link href={service.link} className="mt-auto">
-                        <Button className="bg-transparent border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
+                  <div
+                    key={service.id}
+                    className={`grid lg:grid-cols-2 gap-8 md:gap-12 items-center${index % 2 === 1 ? " lg:grid-flow-col-dense" : ""}`}
+                  >
+                    {/* Service Image */}
+                    <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}>{renderServiceImage(service)}</div>
+                    {/* Service Content */}
+                    <div className={`space-y-4 md:space-y-6${index % 2 === 1 ? " lg:col-start-1" : ""}`}>
+                      <div className="inline-block bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide">
+                        {service.title.replace(/CAD |PLM /, "").toUpperCase()}
+                      </div>
+                      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-500">{service.title}</h2>
+                      <p className="text-base md:text-lg text-gray-700 leading-relaxed">{service.description}</p>
+                      <Link href={service.link}>
+                        <Button className="bg-transparent border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-500 transform group-hover:scale-105 group-hover:-translate-y-1 flex items-center space-x-2">
                           <span>Read More</span>
                           <ArrowRight className="w-4 h-4" />
                         </Button>
                       </Link>
-                    </div>
-                    {/* Right: Image */}
-                    <div className="relative min-h-[300px] h-full w-full">
-                      <Image
-                        src="/cad.jpg"
-                        alt="CAD Software Customization"
-                        fill
-                        className="object-cover object-center"
-                        style={{ minHeight: 300 }}
-                      />
                     </div>
                   </div>
                 )
@@ -505,14 +510,14 @@ export function ServicesPage() {
                   {/* Service Image */}
                   <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}>{renderServiceImage(service)}</div>
                   {/* Service Content */}
-                  <div className={`space-y-4 md:space-y-6 ${index % 2 === 1 ? "lg:col-start-1" : ""}`}>
+                  <div className={`space-y-4 md:space-y-6${index % 2 === 1 ? " lg:col-start-1" : ""}`}>
                     <div className="inline-block bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide">
                       {service.title.replace(/CAD |PLM /, "").toUpperCase()}
                     </div>
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">{service.title}</h2>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-500">{service.title}</h2>
                     <p className="text-base md:text-lg text-gray-700 leading-relaxed">{service.description}</p>
                     <Link href={service.link}>
-                      <Button className="bg-transparent border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
+                      <Button className="bg-transparent border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-500 transform group-hover:scale-105 group-hover:-translate-y-1 flex items-center space-x-2">
                         <span>Read More</span>
                         <ArrowRight className="w-4 h-4" />
                       </Button>
@@ -525,25 +530,7 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* Company Logos Section */}
-      <section className="py-16 px-4 lg:px-8">
-        <div className="overflow-hidden w-full">
-          <div className="flex space-x-12 animate-logo-scroll items-center" style={{ minHeight: 100 }}>
-            <img src="/Group.png" alt="Group" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
-            <img src="/Group 1.png" alt="Group 1" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
-            <img src="/Group 2.png" alt="Group 2" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
-            <img src="/Group 3.png" alt="Group 3" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
-            <img src="/Group 4.png" alt="Group 4" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
-            {/* Duplicate for seamless loop */}
-            <img src="/Group.png" alt="Group" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
-            <img src="/Group 1.png" alt="Group 1" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
-            <img src="/Group 2.png" alt="Group 2" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
-            <img src="/Group 3.png" alt="Group 3" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
-            <img src="/Group 4.png" alt="Group 4" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
-          </div>
-        </div>
-      </section>
-
+      {/* Footer */}
       <FooterSection />
     </div>
   )

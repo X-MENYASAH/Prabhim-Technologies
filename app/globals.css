@@ -58,6 +58,20 @@
   .scale-99 {
     transform: scale(0.99);
   }
+
+  /* Card/Image hover effect */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  .hover\:shadow-2xl:hover {
+    box-shadow: 0 8px 40px 0 rgba(31, 38, 135, 0.18);
+  }
+  .transition-transform {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .transition-shadow {
+    transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }
 
 /* Custom animations for glowing effects */
@@ -151,4 +165,23 @@ html {
 }
 .animate-logo-scroll {
   animation: logo-scroll 20s linear infinite;
+}
+
+/* Animated gradient overlay for ser back.jpg */
+@keyframes animated-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.animated-gradient-overlay {
+  background: linear-gradient(120deg, rgba(255,140,0,0.15) 0%, rgba(255,255,255,0.10) 100%, rgba(255,87,34,0.12) 80%);
+  background-size: 200% 200%;
+  animation: animated-gradient 8s ease-in-out infinite;
+  pointer-events: none;
 }
