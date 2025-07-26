@@ -18,6 +18,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { FooterSection } from "@/components/footer-section"
+import { TestimonialsSection } from "@/components/TestimonialsSection"
 
 const services = [
   {
@@ -529,6 +530,30 @@ export function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Rolling Company Logos after PLM Customization */}
+      <section className="py-8 px-4 lg:px-8">
+        <div className="overflow-hidden w-full">
+          <div className="flex space-x-12 animate-logo-scroll items-center" style={{ minHeight: 100 }}>
+            <img src="/Group.png" alt="Group" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 1.png" alt="Group 1" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 2.png" alt="Group 2" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 3.png" alt="Group 3" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 4.png" alt="Group 4" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 5.png" alt="Group 5" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            {/* Duplicate for seamless loop */}
+            <img src="/Group.png" alt="Group" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 1.png" alt="Group 1" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 2.png" alt="Group 2" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 3.png" alt="Group 3" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 4.png" alt="Group 4" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+            <img src="/Group 5.png" alt="Group 5" width={200} height={70} className="w-[200px] h-[70px] object-contain" />
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <TestimonialsSection />
 
       {/* Footer */}
       <FooterSection />
