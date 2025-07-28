@@ -19,8 +19,11 @@ import {
   Linkedin,
   Github,
   Instagram,
+  Settings,
+  Wrench,
 } from "lucide-react"
 import Link from "next/link"
+import { FooterSection } from "@/components/footer-section"
 
 const courseCategories = [
   "All Courses",
@@ -221,99 +224,27 @@ export function CoursesPage() {
   })
 
   const renderCourseImage = (course: (typeof courses)[0]) => {
+    let imageUrl = "/placeholder.jpg";
+    if (course.title === "AutoCAD Customization") imageUrl = "/h1.jpg";
+    else if (course.title === "LISP Customization") imageUrl = "/h2.jpg";
+    else if (course.title === "Special Offer on C, C++ & C#") imageUrl = "/h3.jpg";
+    else if (course.title === "SolidWorks Customization") imageUrl = "/img.jpg";
+    else if (course.title === "CATIA Customization") imageUrl = "/fc1.jpg";
+    else if (course.title === "NX Customization") imageUrl = "/fc2.jpg";
+    else if (course.title === "SolidEdge Customization") imageUrl = "/fc3.jpg";
+    else if (course.title === "Revit Customization") imageUrl = "/des.jpg";
+    else if (course.title === "C, C++ With DSA") imageUrl = "/cad.jpg";
+    else if (course.title === "Python With DSA") imageUrl = "/cad soft.jpg";
+    else if (course.title === "C# With DSA") imageUrl = "/cad plm.jpg";
+    else if (course.title === "Java - JavaScript With DSA") imageUrl = "/pc2.jpg";
+    else if (course.title === "Full Stack Development") imageUrl = "/Full.jpg";
+    else if (course.title === "DevOps And Cloud Computing") imageUrl = "/dev.jpg";
+    else if (course.title === "Manual Testing") imageUrl = "/testing.jpg";
+    else if (course.title === "Automation Testing") imageUrl = "/A Testing.avif";
+    // You can add more conditions for other courses if you want specific images
     return (
-      <div className={`relative h-48 bg-gradient-to-br ${course.bgGradient} rounded-t-2xl overflow-hidden`}>
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
-
-          {/* Course-specific illustrations */}
-          {course.category === "CAD Customization" && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg width="120" height="80" viewBox="0 0 120 80" className="text-white/40">
-                <rect x="10" y="20" width="100" height="60" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
-                <rect
-                  x="15"
-                  y="25"
-                  width="90"
-                  height="35"
-                  rx="2"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  fill="currentColor"
-                  fillOpacity="0.1"
-                />
-                <circle cx="30" cy="45" r="8" stroke="currentColor" strokeWidth="1" fill="none" />
-                <rect x="45" y="37" width="20" height="16" stroke="currentColor" strokeWidth="1" fill="none" />
-                <path d="M70 37 L90 37 L85 45 L90 53 L70 53 Z" stroke="currentColor" strokeWidth="1" fill="none" />
-                <line x1="20" y1="65" x2="100" y2="65" stroke="currentColor" strokeWidth="1" />
-                <line x1="20" y1="70" x2="80" y2="70" stroke="currentColor" strokeWidth="1" />
-              </svg>
-            </div>
-          )}
-
-          {course.category === "Programming Languages" && (
-            <div className="absolute inset-0 p-4 font-mono text-xs text-white/60">
-              <div className="space-y-1">
-                <div>{"function learn() {"}</div>
-                <div className="ml-4">{"const skills = [];"}</div>
-                <div className="ml-4">{"while(practicing) {"}</div>
-                <div className="ml-8">{"skills.push('new_concept');"}</div>
-                <div className="ml-4">{"}"}</div>
-                <div className="ml-4">{"return skills;"}</div>
-                <div>{"}"}</div>
-                <div className="mt-2">{"// Keep coding!"}</div>
-              </div>
-            </div>
-          )}
-
-          {course.category === "Software Development" && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="grid grid-cols-3 gap-2 opacity-40">
-                <div className="w-8 h-8 bg-white/20 rounded border border-white/30" />
-                <div className="w-8 h-8 bg-white/30 rounded border border-white/40" />
-                <div className="w-8 h-8 bg-white/20 rounded border border-white/30" />
-                <div className="w-8 h-8 bg-white/30 rounded border border-white/40" />
-                <div className="w-8 h-8 bg-white/40 rounded border border-white/50" />
-                <div className="w-8 h-8 bg-white/30 rounded border border-white/40" />
-                <div className="w-8 h-8 bg-white/20 rounded border border-white/30" />
-                <div className="w-8 h-8 bg-white/30 rounded border border-white/40" />
-                <div className="w-8 h-8 bg-white/20 rounded border border-white/30" />
-              </div>
-            </div>
-          )}
-
-          {course.category === "Software Testing" && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative">
-                <div className="w-16 h-16 border-2 border-white/40 rounded-full flex items-center justify-center">
-                  <div className="w-8 h-8 bg-green-400/60 rounded-full flex items-center justify-center">
-                    <div className="w-3 h-2 border-l-2 border-b-2 border-white transform rotate-[-45deg] translate-y-[-1px]" />
-                  </div>
-                </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-400/60 rounded-full flex items-center justify-center">
-                  <div className="w-3 h-0.5 bg-white" />
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Special Offer Badge */}
-        {course.isSpecialOffer && (
-          <div className="absolute top-4 left-4">
-            <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">SPECIAL OFFER</div>
-          </div>
-        )}
-
-        {/* Course Icon */}
-        <div className="absolute bottom-4 right-4">
-          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/30">
-            <GraduationCap className="w-6 h-6 text-white" />
-          </div>
-        </div>
-      </div>
-    )
+      <div className="relative h-48 rounded-t-2xl overflow-hidden" style={{ backgroundImage: `url('${imageUrl}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+    );
   }
 
   return (
@@ -413,72 +344,8 @@ export function CoursesPage() {
 
             {/* Right Content - Workspace Illustration */}
             <div className="relative h-96 lg:h-[500px]">
-              {/* Bookshelf Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl overflow-hidden">
-                {/* Books on shelf */}
-                <div className="absolute top-8 left-8 right-8">
-                  <div className="flex space-x-1 mb-2">
-                    <div className="w-4 h-16 bg-red-400 rounded-t" />
-                    <div className="w-4 h-16 bg-blue-400 rounded-t" />
-                    <div className="w-4 h-16 bg-green-400 rounded-t" />
-                    <div className="w-4 h-16 bg-yellow-400 rounded-t" />
-                    <div className="w-4 h-16 bg-purple-400 rounded-t" />
-                    <div className="w-4 h-16 bg-pink-400 rounded-t" />
-                    <div className="w-4 h-16 bg-indigo-400 rounded-t" />
-                    <div className="w-4 h-16 bg-orange-400 rounded-t" />
-                  </div>
-                  <div className="w-full h-2 bg-gray-300 rounded" />
-                </div>
-
-                {/* Desk */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-amber-200 to-amber-100 rounded-b-3xl">
-                  {/* Computer Monitor */}
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-                    <div className="w-24 h-16 bg-gray-800 rounded border-2 border-gray-700">
-                      <div className="w-full h-full bg-blue-400 rounded p-1">
-                        <div className="w-full h-2 bg-white/20 rounded mb-1" />
-                        <div className="w-3/4 h-2 bg-white/20 rounded mb-1" />
-                        <div className="w-1/2 h-2 bg-white/20 rounded" />
-                      </div>
-                    </div>
-                    <div className="w-2 h-4 bg-gray-600 mx-auto" />
-                    <div className="w-16 h-2 bg-gray-600 rounded-full mx-auto" />
-                  </div>
-
-                  {/* Person silhouette */}
-                  <div className="absolute bottom-4 right-8">
-                    <div className="w-8 h-8 bg-orange-400 rounded-full" />
-                    <div className="w-12 h-16 bg-blue-500 rounded-t-lg mt-1" />
-                    <div className="flex space-x-1 mt-1">
-                      <div className="w-3 h-8 bg-blue-500 rounded" />
-                      <div className="w-3 h-8 bg-blue-500 rounded" />
-                    </div>
-                  </div>
-
-                  {/* Coffee cup */}
-                  <div className="absolute bottom-12 left-8">
-                    <div className="w-4 h-6 bg-white rounded-b-full border-2 border-gray-300">
-                      <div className="w-full h-2 bg-amber-600 rounded-t" />
-                    </div>
-                  </div>
-
-                  {/* Notebook */}
-                  <div className="absolute bottom-8 right-16">
-                    <div className="w-8 h-6 bg-white border border-gray-300 rounded">
-                      <div className="space-y-1 p-1">
-                        <div className="w-full h-0.5 bg-gray-300" />
-                        <div className="w-3/4 h-0.5 bg-gray-300" />
-                        <div className="w-1/2 h-0.5 bg-gray-300" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-yellow-400 rounded-full opacity-80 animate-bounce" />
-              <div className="absolute top-1/2 -left-4 w-12 h-12 bg-pink-400 rounded-full opacity-60" />
-              <div className="absolute bottom-8 -right-8 w-20 h-20 bg-blue-400 rounded-full opacity-40" />
+              {/* Only keep the background image, remove all children */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden" style={{ backgroundImage: "url('/cor back.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
             </div>
           </div>
         </div>
@@ -591,244 +458,80 @@ export function CoursesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
-            <div className="space-y-8">
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            <div className="space-y-12">
+              {/* Section Title */}
+              <h2 className="text-[50px] font-bold text-gray-900 leading-tight font-syne">
                 Earn Industry-Recognized
                 <br />
                 <span className="text-orange-500">Certificates</span>
               </h2>
 
-              {/* Benefits */}
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <TrendingUp className="w-6 h-6 text-orange-500" />
+              {/* Benefits List */}
+              <div className="space-y-8">
+                {/* Career Opportunities */}
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0 w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center">
+                    <GraduationCap className="w-8 h-8 text-gray-900" />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Career Opportunities</h3>
-                    <p className="text-gray-600">
-                      Stand out from the crowd with industry-recognized certifications that validate your skills and
-                      open doors to new career opportunities.
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 font-exo">Career Opportunities</h3>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Earning recognized certifications in programming and CAD opens doors across industries—from tech
+                      startups to engineering firms.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Award className="w-6 h-6 text-orange-500" />
+                {/* Professional Credibility */}
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0 w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center">
+                    <Settings className="w-8 h-8 text-gray-900" />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Professional Credibility</h3>
-                    <p className="text-gray-600">
-                      Build trust with employers and clients by showcasing verified competencies through our
-                      comprehensive certification program.
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 font-exo">Professional Credibility</h3>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Having a credential shows dedication to your craft—it boosts trust and credibility with employers,
+                      clients, and peers. Plus, you'll gain confidence to tackle increasingly complex problems.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Target className="w-6 h-6 text-orange-500" />
+                {/* Demonstrable, Real-World Skills */}
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0 w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center">
+                    <Wrench className="w-8 h-8 text-gray-900" />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Demonstrable, Real-World Skills</h3>
-                    <p className="text-gray-600">
-                      Our certificates represent practical, hands-on experience that employers value, not just
-                      theoretical knowledge.
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 font-exo">Demonstrable, Real-World Skills</h3>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Beyond theory, our certification confirms your ability to produce actual scripts, tools, CAD
+                      designs, and automations. Employers and clients value practical competence—often more than common
+                      "completion" certificates.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Content - Certificate Illustration */}
-            <div className="relative h-96 lg:h-[500px] flex items-center justify-center">
-              <div className="relative">
-                {/* Certificate */}
-                <div className="w-80 h-60 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl shadow-2xl border-4 border-white relative overflow-hidden">
-                  {/* Certificate Header */}
-                  <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-blue-600 to-indigo-600" />
-
-                  {/* Certificate Content */}
-                  <div className="p-8 pt-20 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <GraduationCap className="w-8 h-8 text-white" />
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">CERTIFICATE</h3>
-                    <p className="text-lg text-gray-700 mb-4">of Achievement</p>
-
-                    <div className="space-y-2">
-                      <div className="w-32 h-1 bg-gray-300 rounded mx-auto" />
-                      <div className="w-24 h-1 bg-gray-300 rounded mx-auto" />
-                      <div className="w-28 h-1 bg-gray-300 rounded mx-auto" />
-                    </div>
-                  </div>
-
-                  {/* Decorative elements */}
-                  <div className="absolute top-4 left-4 w-8 h-8 border-2 border-white/30 rounded-full" />
-                  <div className="absolute top-4 right-4 w-8 h-8 border-2 border-white/30 rounded-full" />
-                  <div className="absolute bottom-4 left-4 w-6 h-6 bg-white/20 rounded" />
-                  <div className="absolute bottom-4 right-4 w-6 h-6 bg-white/20 rounded" />
-                </div>
-
-                {/* Floating graduation cap */}
-                <div className="absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-xl animate-bounce">
-                  <GraduationCap className="w-8 h-8 text-white" />
-                </div>
-
-                {/* Floating badge */}
-                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
+            {/* Right Side - Certificate Image */}
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-lg animate-float-alt">
+                <Image
+                  src="/cert.png"
+                  alt="Industry-Recognized Certificate"
+                  width={400}
+                  height={500}
+                  className="w-full h-auto object-contain drop-shadow-2xl"
+                  priority
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white py-16 px-4 lg:px-8 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          {/* Main Footer Content */}
-          <div className="grid lg:grid-cols-12 gap-12 mb-16">
-            {/* Company Info - Left Side */}
-            <div className="lg:col-span-4 space-y-6">
-              {/* Logo */}
-              <div className="flex items-center">
-                <Image
-                  src="/logo1.png"
-                  alt="PRABHIM Logo"
-                  width={216.56}
-                  height={143}
-                  className="h-[143px] w-auto object-contain"
-                  priority
-                />
-              </div>
-
-              {/* Company Description */}
-              <p className="text-gray-600 leading-relaxed max-w-md">
-                We provide full-cycle software development services to help businesses innovate and grow. Our team
-                builds secure, high-quality applications using modern technologies and frameworks.
-              </p>
-            </div>
-
-            {/* Navigation Links - Right Side */}
-            <div className="lg:col-span-8 grid md:grid-cols-3 gap-8 mt-5">
-              {/* Company */}
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-6">Company</h3>
-                <ul className="space-y-4">
-                  <li>
-                    <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      About Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Contact Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Blogs
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Useful Links */}
-              <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-6">Useful Links</h3>
-                <ul className="space-y-4">
-                  <li>
-                    <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/courses" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Courses
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
-                      Blogs
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Newsletter Section */}
-          <div className="mb-12">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              {/* Newsletter Text */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Get the latest updates Subscribe us</h3>
-                <p className="text-gray-600">Subscribe to PRABHIM</p>
-              </div>
-
-              {/* Newsletter Form */}
-              <div className="flex space-x-4">
-                <div className="flex-1">
-                  <Input
-                    type="email"
-                    placeholder="Add your email*"
-                    className="w-full px-6 py-4 bg-gray-800 text-white placeholder-gray-400 border-0 rounded-full focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                  />
-                </div>
-                <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2">
-                  <span>SUBSCRIBE</span>
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Section */}
-          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-100">
-            {/* Copyright */}
-            <div className="text-gray-600 mb-4 md:mb-0">©2024 All rights reserved</div>
-
-            {/* Social Media Icons */}
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <Linkedin className="w-6 h-6 text-white" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <Github className="w-6 h-6 text-white" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <Instagram className="w-6 h-6 text-white" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Footer Section */}
+      <FooterSection />
     </div>
   )
 }

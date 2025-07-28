@@ -23,26 +23,10 @@ import { CadSoftwareCustomizationSection } from "@/components/cad-software-custo
 import { MobileMenu } from "@/components/mobile-menu"
 
 export default function PrabhimHomepage() {
-  const [showWorkingMessage, setShowWorkingMessage] = useState(false)
-
-  const handleWorkingLinkClick = (e: React.MouseEvent, linkName: string) => {
-    e.preventDefault()
-    setShowWorkingMessage(true)
-  }
-
+  // Remove showWorkingMessage state and handleWorkingLinkClick
   return (
     <div className="min-h-screen bg-white">
-      {/* Working Message */}
-      <WorkingMessage
-        isVisible={showWorkingMessage}
-        onClose={() => setShowWorkingMessage(false)}
-        title="Working on it!"
-        message="This feature is currently under development. We're working hard to bring you something amazing!"
-        buttonText="Got it!"
-        autoClose={true}
-        autoCloseDelay={4000}
-      />
-
+      {/* Remove Working Message modal */}
       {/* Header */}
       <header className="relative z-10 px-4 py-6 lg:px-8">
         <nav className="flex items-center justify-between max-w-7xl mx-auto">
@@ -72,30 +56,30 @@ export default function PrabhimHomepage() {
             >
               SERVICES
             </Link>
-            <button
-              onClick={(e) => handleWorkingLinkClick(e, 'Courses')}
+            <Link
+              href="/courses"
               className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
             >
               COURSES
-            </button>
-            <button
-              onClick={(e) => handleWorkingLinkClick(e, 'About Us')}
+            </Link>
+            <Link
+              href="/about"
               className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
             >
               ABOUT US
-            </button>
-            <button
-              onClick={(e) => handleWorkingLinkClick(e, 'Contact')}
+            </Link>
+            <Link
+              href="/contact"
               className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
             >
               CONTACT
-            </button>
-            <button
-              onClick={(e) => handleWorkingLinkClick(e, 'Blogs')}
+            </Link>
+            <Link
+              href="#"
               className="text-gray-600 font-medium text-sm tracking-wide hover:text-gray-900 transition-colors cursor-pointer"
             >
               BLOGS
-            </button>
+            </Link>
           </div>
 
           {/* Right Side - Mobile Menu and Login Button */}
