@@ -12,7 +12,7 @@ import { Play, Clock, BookOpen, Users, Award, CheckCircle, Star, Moon, Sun } fro
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-export function CadCustomizationPage() {
+export function CadCustomizationPage({ course }) {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   const toggleDarkMode = () => {
@@ -52,9 +52,9 @@ export function CadCustomizationPage() {
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <span>By Professional Drafting</span>
                 <span>•</span>
-                <span>Categories: CAD Customization</span>
+                <span>Categories: {course?.category || "CAD Customization"}</span>
               </div>
-              <h1 className="text-4xl font-bold text-foreground font-sans">AutoCAD Customization Full Course</h1>
+              <h1 className="text-4xl font-bold text-foreground font-sans">{course?.title || "Course"} Full Course</h1>
             </div>
 
             {/* Video Player */}
@@ -62,7 +62,7 @@ export function CadCustomizationPage() {
               <div className="relative aspect-video bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                 <div className="text-center text-white">
                   <div className="text-6xl mb-4">🎥</div>
-                  <h3 className="text-xl font-semibold">AutoCAD Customization Course</h3>
+                  <h3 className="text-xl font-semibold">{course?.title || "Course"}</h3>
                   <p className="text-blue-100">Professional Training Video</p>
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -173,7 +173,7 @@ export function CadCustomizationPage() {
             <Card>
               <CardContent className="p-6 space-y-4">
                 <div className="text-center space-y-2">
-                  <div className="text-3xl font-bold text-primary">$500.0</div>
+                <div className="text-3xl font-bold text-primary">{course?.price ? `$${Number(course.price).toFixed(1)}` : "$500.0"}</div>
                   <Button className="w-full" size="lg">
                     Enroll Now
                   </Button>

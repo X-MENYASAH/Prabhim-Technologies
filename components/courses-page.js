@@ -16,6 +16,7 @@ import {
   Wrench,
 } from "lucide-react";
 import Link from "next/link";
+import { courses as allCourses } from "@/lib/courses";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
@@ -27,185 +28,7 @@ const courseCategories = [
   "Software Testing",
 ];
 
-const courses = [
-  {
-    id: 1,
-    title: "AutoCAD Customization",
-    duration: "2 Weeks",
-    students: "156 Students",
-    rating: 4.5,
-    reviews: 124,
-    category: "CAD Customization",
-    description: "Master AutoCAD customization with hands-on projects and real-world applications.",
-    bgGradient: "from-blue-500 to-purple-600",
-  },
-  {
-    id: 2,
-    title: "LISP Customization",
-    duration: "3 Weeks",
-    students: "89 Students",
-    rating: 4.3,
-    reviews: 67,
-    category: "CAD Customization",
-    description: "Learn LISP programming for AutoCAD automation and customization.",
-    bgGradient: "from-green-500 to-teal-600",
-  },
-  {
-    id: 3,
-    title: "Special Offer on C, C++ & C#",
-    duration: "4 Weeks",
-    students: "234 Students",
-    rating: 4.7,
-    reviews: 189,
-    category: "Programming Languages",
-    description: "Complete programming bundle covering C, C++, and C# fundamentals.",
-    bgGradient: "from-orange-500 to-red-600",
-    isSpecialOffer: true,
-  },
-  {
-    id: 4,
-    title: "SolidWorks Customization",
-    duration: "3 Weeks",
-    students: "145 Students",
-    rating: 4.6,
-    reviews: 112,
-    category: "CAD Customization",
-    description: "Advanced SolidWorks customization techniques and API development.",
-    bgGradient: "from-purple-500 to-pink-600",
-  },
-  {
-    id: 5,
-    title: "CATIA Customization",
-    duration: "4 Weeks",
-    students: "98 Students",
-    rating: 4.4,
-    reviews: 76,
-    category: "CAD Customization",
-    description: "Professional CATIA customization and macro development.",
-    bgGradient: "from-indigo-500 to-blue-600",
-  },
-  {
-    id: 6,
-    title: "NX Customization",
-    duration: "3 Weeks",
-    students: "87 Students",
-    rating: 4.5,
-    reviews: 65,
-    category: "CAD Customization",
-    description: "NX/Unigraphics customization and automation programming.",
-    bgGradient: "from-cyan-500 to-blue-600",
-  },
-  {
-    id: 7,
-    title: "SolidEdge Customization",
-    duration: "2 Weeks",
-    students: "76 Students",
-    rating: 4.3,
-    reviews: 54,
-    category: "CAD Customization",
-    description: "SolidEdge API programming and customization techniques.",
-    bgGradient: "from-teal-500 to-green-600",
-  },
-  {
-    id: 8,
-    title: "Revit Customization",
-    duration: "3 Weeks",
-    students: "123 Students",
-    rating: 4.6,
-    reviews: 98,
-    category: "CAD Customization",
-    description: "Revit API development and BIM customization solutions.",
-    bgGradient: "from-yellow-500 to-orange-600",
-  },
-  {
-    id: 9,
-    title: "C, C++ With DSA",
-    duration: "6 Weeks",
-    students: "312 Students",
-    rating: 4.8,
-    reviews: 267,
-    category: "Programming Languages",
-    description: "Complete C/C++ programming with Data Structures and Algorithms.",
-    bgGradient: "from-red-500 to-pink-600",
-  },
-  {
-    id: 10,
-    title: "Python With DSA",
-    duration: "5 Weeks",
-    students: "289 Students",
-    rating: 4.7,
-    reviews: 234,
-    category: "Programming Languages",
-    description: "Python programming fundamentals with advanced DSA concepts.",
-    bgGradient: "from-green-500 to-blue-600",
-  },
-  {
-    id: 11,
-    title: "C# With DSA",
-    duration: "5 Weeks",
-    students: "198 Students",
-    rating: 4.6,
-    reviews: 156,
-    category: "Programming Languages",
-    description: "C# programming with comprehensive Data Structures coverage.",
-    bgGradient: "from-purple-500 to-indigo-600",
-  },
-  {
-    id: 12,
-    title: "Java - JavaScript With DSA",
-    duration: "6 Weeks",
-    students: "345 Students",
-    rating: 4.8,
-    reviews: 298,
-    category: "Programming Languages",
-    description: "Dual language mastery: Java and JavaScript with DSA.",
-    bgGradient: "from-orange-500 to-red-600",
-  },
-  {
-    id: 13,
-    title: "Full Stack Development",
-    duration: "8 Weeks",
-    students: "267 Students",
-    rating: 4.9,
-    reviews: 223,
-    category: "Software Development",
-    description: "Complete full-stack web development with modern frameworks.",
-    bgGradient: "from-blue-500 to-purple-600",
-  },
-  {
-    id: 14,
-    title: "DevOps And Cloud Computing",
-    duration: "6 Weeks",
-    students: "189 Students",
-    rating: 4.7,
-    reviews: 145,
-    category: "Software Development",
-    description: "Modern DevOps practices and cloud computing fundamentals.",
-    bgGradient: "from-cyan-500 to-blue-600",
-  },
-  {
-    id: 15,
-    title: "Manual Testing",
-    duration: "4 Weeks",
-    students: "156 Students",
-    rating: 4.5,
-    reviews: 123,
-    category: "Software Testing",
-    description: "Comprehensive manual testing methodologies and best practices.",
-    bgGradient: "from-green-500 to-teal-600",
-  },
-  {
-    id: 16,
-    title: "Automation Testing",
-    duration: "5 Weeks",
-    students: "134 Students",
-    rating: 4.6,
-    reviews: 108,
-    category: "Software Testing",
-    description: "Advanced automation testing with Selenium and modern tools.",
-    bgGradient: "from-indigo-500 to-purple-600",
-  },
-];
+const courses = allCourses;
 
 export function CoursesPage() {
   const [selectedCategory, setSelectedCategory] = useState("All Courses");
@@ -359,23 +182,14 @@ export function CoursesPage() {
                       </div>
                       <span className="text-xs text-green-600 font-medium">({course.reviews})</span>
                     </div>
-                    {course.id === 1 ? (
-                      <Link href="/courses/autocad-customization">
-                        <Button
-                          variant="ghost"
-                          className="text-orange-500 hover:text-orange-600 font-semibold text-sm p-0"
-                        >
-                          View More
-                        </Button>
-                      </Link>
-                    ) : (
+                    <Link href={`/courses/${course.slug}`}>
                       <Button
                         variant="ghost"
                         className="text-orange-500 hover:text-orange-600 font-semibold text-sm p-0"
                       >
                         View More
                       </Button>
-                    )}
+                    </Link>
                   </div>
                 </CardContent>
               </Card>

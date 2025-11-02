@@ -21,9 +21,34 @@ import { CertificatesSection } from "@/components/certificates-section";
 import { FooterSection } from "@/components/footer-section";
 import { CadSoftwareCustomizationSection } from "@/components/cad-software-customization-section";
 import { MobileMenu } from "@/components/mobile-menu";
+import SignInModal from "@/components/sign-in-modal";
+import SignUpModal from "@/components/sign-up-modal";
 
 export default function PrabhimHomepage() {
-  // Remove showWorkingMessage state and handleWorkingLinkClick
+  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+
+  const handleLoginClick = () => {
+    setIsSignInModalOpen(true);
+  };
+
+  const handleCloseSignInModal = () => {
+    setIsSignInModalOpen(false);
+  };
+
+  const handleCloseSignUpModal = () => {
+    setIsSignUpModalOpen(false);
+  };
+
+  const handleSwitchToSignUp = () => {
+    setIsSignInModalOpen(false);
+    setIsSignUpModalOpen(true);
+  };
+
+  const handleSwitchToSignIn = () => {
+    setIsSignUpModalOpen(false);
+    setIsSignInModalOpen(true);
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Remove Working Message modal */}
@@ -90,7 +115,10 @@ export default function PrabhimHomepage() {
             </div>
 
             {/* Login Button */}
-            <Button className="bg-black text-white hover:bg-gray-800 rounded-full px-4 md:px-6 py-2 md:py-2.5 flex items-center space-x-2 shadow-lg transition-all duration-200 hover:shadow-xl text-sm md:text-base">
+            <Button 
+              onClick={handleLoginClick}
+              className="bg-black text-white hover:bg-gray-800 rounded-full px-4 md:px-6 py-2 md:py-2.5 flex items-center space-x-2 shadow-lg transition-all duration-200 hover:shadow-xl text-sm md:text-base"
+            >
               <span className="font-medium">Login</span>
               <div className="w-5 h-5 md:w-6 md:h-6 bg-white rounded-full flex items-center justify-center">
                 <ArrowUpRight className="w-3 h-3 md:w-3.5 md:h-3.5 text-black" />
@@ -195,6 +223,20 @@ export default function PrabhimHomepage() {
 
       {/* Footer Section */}
       <FooterSection />
+
+      {/* Sign In Modal */}
+      <SignInModal 
+        isOpen={isSignInModalOpen} 
+        onClose={handleCloseSignInModal}
+        onSwitchToSignUp={handleSwitchToSignUp}
+      />
+
+      {/* Sign Up Modal */}
+      <SignUpModal 
+        isOpen={isSignUpModalOpen} 
+        onClose={handleCloseSignUpModal}
+        onSwitchToSignIn={handleSwitchToSignIn}
+      />
     </div>
   );
 }

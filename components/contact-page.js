@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { useState, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,6 +12,26 @@ import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 
 export default function ContactPage() {
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [message, setMessage] = useState("")
+
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault()
+    const targetWhatsappNumber = "9886001412"
+    const baseText = "Hii I am interested"
+    const composed = `${baseText}\nName: ${firstName} ${lastName}`.trim() +
+      (phone ? `\nPhone: ${phone}` : "") +
+      (email ? `\nEmail: ${email}` : "") +
+      (message ? `\nMessage: ${message}` : "")
+    const url = `https://wa.me/${targetWhatsappNumber}?text=${encodeURIComponent(composed)}`
+    if (typeof window !== "undefined") {
+      window.open(url, "_blank", "noopener,noreferrer")
+    }
+  }, [firstName, lastName, email, phone, message])
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -49,23 +72,23 @@ export default function ContactPage() {
               GET IN <span className="text-orange-500">TOUCH</span>
             </h2>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                  <Input placeholder="John" className="border-gray-200" />
+                  <Input placeholder="John" className="border-gray-200" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                   <p className="text-xs text-gray-500 mt-1">What should we call you?</p>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                  <Input placeholder="Statham" className="border-gray-200" />
+                  <Input placeholder="Statham" className="border-gray-200" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                  <Input type="email" placeholder="john123@gmail.com" className="border-gray-200" />
+                  <Input type="email" placeholder="john123@gmail.com" className="border-gray-200" value={email} onChange={(e) => setEmail(e.target.value)} />
                   <p className="text-xs text-gray-500 mt-1">We'll never share your email with anyone else.</p>
                 </div>
                 <div>
@@ -74,14 +97,14 @@ export default function ContactPage() {
                     <div className="flex items-center px-3 border border-r-0 border-gray-200 bg-gray-50 rounded-l-md">
                       <span className="text-sm">🇮🇳</span>
                     </div>
-                    <Input placeholder="Your Phone Number" className="border-gray-200 rounded-l-none" />
+                    <Input placeholder="Your Phone Number" className="border-gray-200 rounded-l-none" value={phone} onChange={(e) => setPhone(e.target.value)} />
                   </div>
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
-                <Textarea placeholder="Message" className="border-gray-200 min-h-32" />
+                <Textarea placeholder="Message" className="border-gray-200 min-h-32" value={message} onChange={(e) => setMessage(e.target.value)} />
               </div>
 
               <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg">
@@ -91,18 +114,17 @@ export default function ContactPage() {
             </form>
           </div>
 
-          {/* Map Placeholder */}
+          {/* Location Map */}
           <div className="bg-gray-100 rounded-lg overflow-hidden">
-            <div className="h-96 bg-gradient-to-br from-blue-100 to-blue-200 relative flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-orange-500 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-700">620 North LaSalle Office Space</h3>
-                <p className="text-gray-600">Chicago, IL 60654</p>
-                <div className="flex items-center justify-center mt-2">
-                  <div className="flex text-orange-400">{"★".repeat(5)}</div>
-                  <span className="ml-2 text-sm text-gray-600">29 reviews</span>
-                </div>
-              </div>
+            <div className="h-96 relative">
+              <iframe
+                title="Office Location Map"
+                src="https://www.google.com/maps?q=Office%20No.%208%20First%20Floor%2C%20Jubilation%20Society%2C%20Avishawadi%20Road%20Wagholi%20Pune%20412207&z=15&output=embed"
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
